@@ -48,8 +48,8 @@ parameter_config = {
         "unit": "mm/day",
         "y_min": 0,
         "y_max": 100,
-        "high_threshold": 50,
-        "low_threshold": 5
+        "high_threshold": 25,
+        "low_threshold": None
     }
 }
 
