@@ -1,15 +1,23 @@
 # Advanced Weather Forecasting App by Future Clouds
 
-## Project Summary
+## Summary
 An app where users can obtain weather predictions for a location and dates they select for a trip they have in advance. 
 
 ## Project Demonstration
 
 ## Project Details
+
+ What does it do or how does it work? 
+ What benefits does it have? What is the intended impact of the project? What tools, coding languages, hardware, or software did you use to develop your project? How is your project creative? What factors did your team consider?
+
 ### Challenge
-It is challenging to predict the weather months or years in advance. However, that is what's required when preparing for a trip in advance. We don't want it to be too hot or cold, too windy, raining or snowing too much, or even too humid or dry. Often, we have to guess and hope for the best. 
+It is challenging to predict the weather months in advance. However, that is what's required when preparing for a trip in advance. We don't want it to be too hot or cold, too windy, raining or snowing too much, or even too humid or dry. Often, we have to guess and hope for the best. 
+
 ### Solution
 
+
+### Impact 
+This enables users to choose the optimal dates and locations for their trips to have good weather. If they have already selected the dates and locations for their trips, this still provides them with an advanced notice to pack clothing and items that are appropriate for the weather predicted. 
 
 
 
