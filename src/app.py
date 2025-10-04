@@ -109,7 +109,7 @@ if map_data and map_data["last_clicked"]:
         # Prophet Forecast
         df_prophet = df[[parameter]].reset_index()
         df_prophet.columns = ['ds', 'y']  
-        model = Prophet(weekly_seasonality=False, yearly_seasonality=True, interval.width = 0.95)
+        model = Prophet(weekly_seasonality=False, yearly_seasonality=True, interval_width = 0.95)
         model.fit(df_prophet)
         future = model.make_future_dataframe(periods=365)
         forecast = model.predict(future)
