@@ -9,17 +9,14 @@ A tool for farmers worldwide to evaluate long-term soil moisture trends, forecas
 
 ## Project Details
 
-
 ### Challenge
-It is challenging to predict the weather months in advance. However, that is what's required when preparing for a trip in advance. We don't want it to be too hot or cold, too windy, raining or snowing too much, or even too humid or dry. Often, we have to guess and hope for the best. 
-
-particularly for an outdoor trip they never visited before. It is  compared to the locals. 
+It is challenging for us to predict the weather many months in advance. However, that is what's required when preparing for a trip, particularly for an outdoor trip we have never visited before. We don't want it to be too hot or cold, too windy, raining or snowing too much, or even too humid or dry. Often, we have to guess and hope for the best. 
 
 ### Solution
 An app with analyses of the weather in that location. 
 
 ### Impact 
-This enables users to choose the optimal dates and locations for their trips to have good weather. If they have already selected the dates and locations for their trips, this also provides them with an advanced notice to pack clothing and items that are appropriate for the weather predicted. 
+This enables users to choose the optimal dates within the upcoming year and locations for their trips to have good weather. If they have already selected the dates and locations for their trips, this also provides them with an advanced notice to pack clothing and items that are appropriate for the weather predicted. 
 
 
 
