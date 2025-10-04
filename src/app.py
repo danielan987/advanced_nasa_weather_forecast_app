@@ -34,7 +34,7 @@ parameter_config = {
         "high_threshold": 18,
         "low_threshold": 5
     },
-    "SPEEDLML": {
+    "SPEED": {
         "label": "Surface Wind Speed",
         "unit": "m/s",
         "y_min": 0,
