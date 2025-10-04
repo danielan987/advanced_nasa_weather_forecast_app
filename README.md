@@ -53,8 +53,6 @@ Many MERRA-2 data products could have been selected. However, Nevertheless, deve
 <img width="1081" alt="Screenshot 2025-04-30 at 11 18 21 AM" src="https://github.com/user-attachments/assets/30b56274-92eb-4dcd-b5c4-332f0c3995fc" />
 
 4. Select appropriate parameters before deploying.
-<img width="844" height="730" alt="Screenshot 2025-10-04 at 10 46 49 AM" src="https://github.com/user-attachments/assets/c9409d0e-68e7-4030-b911-d9d17a7ec791" />
-
 <img width="869" height="724" alt="Screenshot 2025-10-04 at 3 10 21 PM" src="https://github.com/user-attachments/assets/e79c041c-8cc6-4f17-8411-8e47f37061f8" />
 
 <img width="1045" height="712" alt="Screenshot 2025-10-04 at 10 50 06 AM" src="https://github.com/user-attachments/assets/292a007c-6319-4b32-b505-985e68aa9517" />
