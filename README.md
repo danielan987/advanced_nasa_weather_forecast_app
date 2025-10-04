@@ -24,12 +24,15 @@ This enables users to choose the optimal dates and locations for their trips to 
 
 
 ### Technical Architecture Diagram
-
+This app 
 A lightweight framework using Python. 
-prophet model
-The forecasted values also include confidence intervals that indicate the range of possible values with 95% certainty. Range of possible values within that level of certainity grows with time
+prophet model leveraging 40 years of MERRA-2 data to predict the weather 365 days into the future. 
+
+The forecasted values also include the range of possible values that fall within the 95% confidence interval. This range generally grows with time so forecasting data was set to 1 year of data. 
 
 It was decided to set the forecasting to 1 year of forecasting data is presented because the range of possible values within that level of certainty grows with time.  
+
+So users can be highly certain about the weather predictions from this app. 
 
 However, other analyses 
 with blue and red dashed lines to indicate if it's too high or too low, respectively. 
