@@ -1,28 +1,41 @@
 # Advanced Weather Forecasting App by Future Clouds
 
 ## Summary
-An app where users can obtain weather predictions for a location and dates they select for a trip they have in advance. 
+An app where users can obtain weather predictions for the next 365 days for a location they select. 
+
+A tool for farmers worldwide to evaluate long-term soil moisture trends, forecasts, and other analyses from the surface to rock bottom. Farmers can select their location on a global map to access tailored analyses of their farmland including trajectories and seasonal variations of their land and next year's soil moisture predictions based on decades of MERRA-2 data. This supports efficient irrigation management and crop production which ultimately supports global water sustainability.
 
 ## Project Demonstration
 
 ## Project Details
 
- What does it do or how does it work? 
- What benefits does it have? What is the intended impact of the project? What tools, coding languages, hardware, or software did you use to develop your project? How is your project creative? What factors did your team consider?
 
 ### Challenge
 It is challenging to predict the weather months in advance. However, that is what's required when preparing for a trip in advance. We don't want it to be too hot or cold, too windy, raining or snowing too much, or even too humid or dry. Often, we have to guess and hope for the best. 
 
-### Solution
+particularly for an outdoor trip they never visited before. It is  compared to the locals. 
 
+### Solution
+An app with analyses of the weather in that location. 
 
 ### Impact 
-This enables users to choose the optimal dates and locations for their trips to have good weather. If they have already selected the dates and locations for their trips, this still provides them with an advanced notice to pack clothing and items that are appropriate for the weather predicted. 
+This enables users to choose the optimal dates and locations for their trips to have good weather. If they have already selected the dates and locations for their trips, this also provides them with an advanced notice to pack clothing and items that are appropriate for the weather predicted. 
 
 
 
 ### Technical Architecture Diagram
 
+A lightweight framework using Python. 
+prophet model
+The forecasted values also include confidence intervals that indicate the range of possible values with 95% certainty. Range of possible values within that level of certainity grows with time
+
+It was decided to set the forecasting to 1 year of forecasting data is presented because the range of possible values within that level of certainty grows with time.  
+
+However, other analyses 
+with blue and red dashed lines to indicate if it's too high or too low, respectively. 
+
+
+Many MERRA-2 data products could have been selected. However, Nevertheless, developers can feel free to update 
 
 
 ### Developer Guide
