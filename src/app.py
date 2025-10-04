@@ -50,6 +50,7 @@ label_to_parameter = {config["label"]: param for param, config in parameter_conf
 # Map API parameters with labels
 parameter_labels = {
     "T2M": "2-meter Air Temperature ",
+    "PRECTOTCORR": "Bias Corrected Total Precipitation",
     "QV2M": "2-meter Specific Humidity",
     "SPEEDLML": "Surface Wind Speed"
 }
