@@ -1,4 +1,4 @@
-# Advanced NASA Weather Forecast App by Future Clouds
+# Advanced Weather Forecasting App by Future Clouds
 
 ## Project Summary
 An app where users can obtain weather predictions for a location and dates they select for a trip they have in advance. 
