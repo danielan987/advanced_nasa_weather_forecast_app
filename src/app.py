@@ -11,7 +11,7 @@ from datetime import datetime
 
 # Layout
 st.set_page_config(layout="wide")
-st.title("Advanced Weather Forecasting App")
+st.title("☔️ Advanced Weather Forecasting App")
 
 # NASA POWER API base URL
 NASA_POWER_API = "https://power.larc.nasa.gov/api/temporal/daily/point"
