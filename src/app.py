@@ -17,11 +17,12 @@ st.title("☔️ Advanced Weather Forecasting App")
 NASA_POWER_API = "https://power.larc.nasa.gov/api/temporal/daily/point"
 
 # Map API parameters with labels and ranges
+# Map API parameters with labels and ranges (after conversion)
 parameter_config = {
     "T2M": {
         "label": "2-meter Air Temperature",
         "unit": "°C",
-        "y_min": -50,
+        "y_min": -60,
         "y_max": 50,
         "high_threshold": 35,
         "low_threshold": 0
@@ -30,15 +31,15 @@ parameter_config = {
         "label": "2-meter Specific Humidity",
         "unit": "g/kg",
         "y_min": 0,
-        "y_max": 25,
-        "high_threshold": 18,
+        "y_max": 30,
+        "high_threshold": 20,
         "low_threshold": 5
     },
     "SPEEDLML": {
         "label": "Surface Wind Speed",
         "unit": "m/s",
         "y_min": 0,
-        "y_max": 20,
+        "y_max": 25,
         "high_threshold": 15,
         "low_threshold": 2
     },
@@ -46,9 +47,9 @@ parameter_config = {
         "label": "Bias Corrected Total Precipitation",
         "unit": "mm/day",
         "y_min": 0,
-        "y_max": 50,
-        "high_threshold": 30,
-        "low_threshold": 1
+        "y_max": 100,
+        "high_threshold": 50,
+        "low_threshold": 5
     }
 }
 
