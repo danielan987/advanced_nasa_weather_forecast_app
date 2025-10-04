@@ -59,7 +59,7 @@ label_to_parameter = {config["label"]: param for param, config in parameter_conf
 parameter_labels = {
     "T2M": "2-meter Air Temperature ",
     "QV2M": "2-meter Specific Humidity",
-    "SPEEDLML": "Surface Wind Speed",
+    "SPEED": "Wind Speed",
     "PRECTOTCORR": "Bias Corrected Total Precipitation"
 }
 label_to_parameter = {v: k for k, v in parameter_labels.items()}
@@ -99,6 +99,18 @@ if map_data and map_data["last_clicked"]:
     if data and parameter in data:
         df = pd.DataFrame.from_dict(data).replace(-999, np.nan)
         df.index = pd.to_datetime(df.index, format='%Y%m%d')
+
+        # Convert units based on parameter
+        if parameter == "T2M":
+            # Convert Kelvin to Celsius
+            df[parameter] = df[parameter] - 273.15
+        elif parameter == "PRECTOTCORR":
+            # Convert kg m⁻² s⁻¹ to mm/day
+            df[parameter] = df[parameter] * 86400
+        elif parameter == "QV2M":
+            # Convert kg/kg to g/kg
+            df[parameter] = df[parameter] * 1000
+            
         st.success("Data fetched successfully! Performing analysis...")
         
         # Historical Analysis Plot
