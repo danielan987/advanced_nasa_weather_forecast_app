@@ -24,6 +24,9 @@ This app
 A lightweight framework using Python. 
 prophet model leveraging 40 years of MERRA-2 data to predict the weather 365 days into the future. 
 
+
+time averaged
+
 The forecasted values also include the range of possible values that fall within the 95% confidence interval. This range generally grows with time so forecasting data was set to 1 year of data. 
 
 It was decided to set the forecasting to 1 year of forecasting data is presented because the range of possible values within that level of certainty grows with time.  
