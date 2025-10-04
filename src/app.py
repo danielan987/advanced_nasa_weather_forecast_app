@@ -41,6 +41,14 @@ parameter_config = {
         "y_max": 20,
         "high_threshold": 15,
         "low_threshold": 2
+    },
+    "PRECTOTCORR": {
+        "label": "Bias Corrected Total Precipitation",
+        "unit": "mm/day",
+        "y_min": 0,
+        "y_max": 50,
+        "high_threshold": 30,
+        "low_threshold": 1
     }
 }
 
@@ -50,9 +58,9 @@ label_to_parameter = {config["label"]: param for param, config in parameter_conf
 # Map API parameters with labels
 parameter_labels = {
     "T2M": "2-meter Air Temperature ",
-    "PRECTOTCORR": "Bias Corrected Total Precipitation",
     "QV2M": "2-meter Specific Humidity",
-    "SPEEDLML": "Surface Wind Speed"
+    "SPEEDLML": "Surface Wind Speed",
+    "PRECTOTCORR": "Bias Corrected Total Precipitation"
 }
 label_to_parameter = {v: k for k, v in parameter_labels.items()}
 
