@@ -1,4 +1,4 @@
-# Advanced Weather Forecasting App by Future Clouds
+# Long-term Weather Forecasting App by Future Clouds
 
 ## Summary
 An app where users can obtain weather predictions for the next 365 days for a location they select. 
