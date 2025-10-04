@@ -30,7 +30,12 @@ It is challenging to predict the weather months or years in advance. However, th
 
 <img width="1081" alt="Screenshot 2025-04-30 at 11 18 21 AM" src="https://github.com/user-attachments/assets/30b56274-92eb-4dcd-b5c4-332f0c3995fc" />
 
-4. Select Python 3.12 on "Advanced Settings" and then deploy.
+4. Select appropriate parameters before deploying.
+<img width="1045" height="712" alt="Screenshot 2025-10-04 at 10 50 06 AM" src="https://github.com/user-attachments/assets/292a007c-6319-4b32-b505-985e68aa9517" />
+
+
+<img width="844" height="730" alt="Screenshot 2025-10-04 at 10 46 49 AM" src="https://github.com/user-attachments/assets/c9409d0e-68e7-4030-b911-d9d17a7ec791" />
+
 
 ### User Guide
 1. Open the Advanced NASA Weather Forecast App.
