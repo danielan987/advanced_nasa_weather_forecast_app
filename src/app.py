@@ -19,7 +19,8 @@ NASA_POWER_API = "https://power.larc.nasa.gov/api/temporal/daily/point"
 # Map API parameters with labels
 parameter_labels = {
     "T2M": "2-meter Air Temperature ",
-    "QV2M": "2-meter Specific Humidity"
+    "QV2M": "2-meter Specific Humidity",
+    "SPEEDLML": "Surface Wind Speed"
 }
 label_to_parameter = {v: k for k, v in parameter_labels.items()}
 
@@ -57,6 +58,8 @@ if map_data and map_data["last_clicked"]:
         df = pd.DataFrame.from_dict(data).replace(-999, np.nan)
         df.index = pd.to_datetime(df.index, format='%Y%m%d')
         st.success("Data fetched successfully! Performing analysis...")
+        
+        
         fig, ax = plt.subplots(figsize=(20, 8))
         ax.plot(df.index, df[parameter], label="Weather Parameter", color="gold")
         ax.axhline(y=0.6, color='blue', linestyle='--', label="Too High") 
@@ -69,7 +72,8 @@ if map_data and map_data["last_clicked"]:
         ax.set_xlabel("Date")
         ax.set_ylabel("Levels")
         ax.legend()
-        st.pyplot(fig)
+        
+        
         df_prophet = df[[parameter]].reset_index()
         df_prophet.columns = ['ds', 'y']  
         model = Prophet(weekly_seasonality=False, yearly_seasonality=True)
@@ -90,6 +94,8 @@ if map_data and map_data["last_clicked"]:
         ax2.legend()
         ax2.grid(True)
         st.pyplot(fig2)
+        st.pyplot(fig)
+        
         historical_forecast = forecast[forecast['ds'] <= df_prophet['ds'].max()]  
         fig3, ax3 = plt.subplots(figsize=(20, 8))
         ax3.plot(historical_forecast['ds'], historical_forecast['trend'], label="Weather", color="gold")
