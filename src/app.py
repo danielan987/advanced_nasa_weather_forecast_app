@@ -67,7 +67,7 @@ if map_data and map_data["last_clicked"]:
         ax.set_ylim(0, 1)
         fig.autofmt_xdate()  
         ax.grid(True)
-        st.title("📅")
+        
         ax.set_title("Historical Analysis")
         ax.set_xlabel("Date")
         ax.set_ylabel("Levels")
@@ -94,6 +94,8 @@ if map_data and map_data["last_clicked"]:
         ax2.legend()
         ax2.grid(True)
         st.pyplot(fig2)
+        
+        st.title("📅")
         st.pyplot(fig)
         
         historical_forecast = forecast[forecast['ds'] <= df_prophet['ds'].max()]  
