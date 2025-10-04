@@ -35,6 +35,8 @@ However, other analyses
 with blue and red dashed lines to indicate if it's too high or too low, respectively. 
 
 
+
+
 Many MERRA-2 data products could have been selected. However, Nevertheless, developers can feel free to update 
 
 
@@ -65,7 +67,9 @@ Many MERRA-2 data products could have been selected. However, Nevertheless, deve
 
 3. View results.
 
-4. Export data (Optional).
+If results can't be found on a particular location with the selected parameter (e.g., selecting in an ocean), users will be requested to select another location/parameter.
+
+5. Export data (Optional).
 
 
 ## Use of Artificial Intelligence
