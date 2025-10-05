@@ -1,26 +1,35 @@
 # Long-term Weather Forecasting App by Future Clouds
 
 ## Summary
-An app where users can obtain weather predictions for the next 365 days for a location they select. 
+An app where users can obtain long-term weather predictions for a location they select. 
 
-A tool for farmers worldwide to evaluate long-term soil moisture trends, forecasts, and other analyses from the surface to rock bottom. Farmers can select their location on a global map to access tailored analyses of their farmland including trajectories and seasonal variations of their land and next year's soil moisture predictions based on decades of MERRA-2 data. This supports efficient irrigation management and crop production which ultimately supports global water sustainability.
+
 
 ## Project Demonstration
 
 ## Project Details
 
 ### Challenge
-It is challenging for us to predict the weather many months in advance. However, that is what's required when preparing for a trip, particularly for an outdoor trip we have never visited before. We don't want it to be too hot or cold, too windy, raining or snowing too much, or even too humid or dry. Often, we have to guess and hope for the best. 
+It is challenging to predict the weather many months in advance. So we often hope for the best that the weather won't be too hot or cold, too humid or dry, or it won't rain or snow too much. As a result, many trips, particularly outdoor trips, have been ruined by unexpected bad weather.   
 
 ### Solution and Impact 
+This is why a user-friendly app 
+
 An app with analyses of the weather in that location. 
 
 By providing this range of forecasted values, this enables users to choose the optimal dates within the upcoming year and locations for their trips to have good weather. If they have already selected the dates and locations for their trips, this also provides them with an advanced notice to pack clothing and items that are appropriate for the weather predicted. 
 
 
 
-### Technical Architecture Diagram
+### Methodology and Technical Architecture Diagram
 This app 
+
+user-friendly without using any particular languages 
+
+accessible for users across the world. By using OpenStreetMap for the map, users can zoom in and see the name of each region in its native language. English was used for labels in the app. However, they are accompanied by emojis to support non-English speaking users. 
+
+Each visualization is written in English with emojis
+
 A lightweight framework using Python. 
 prophet model leveraging 40 years of MERRA-2 data to predict the weather 365 days into the future. 
 
@@ -39,7 +48,9 @@ with blue and red dashed lines to indicate if it's too high or too low, respecti
 
 
 
-Many MERRA-2 data products could have been selected. However, Nevertheless, developers can feel free to update 
+Many MERRA-2 data products could have been selected. However, the 3 products selected for this app includes 
+
+Nevertheless, developers can feel free to update o
 
 
 ### Developer Guide
