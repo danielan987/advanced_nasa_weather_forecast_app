@@ -37,9 +37,9 @@ Modern-Era Retrospective analysis for Research and Applications, Version 2 (MERR
 
 Many MERRA-2 data products could have been selected for this app. However, the 3 products selected for this app were the following:  
 
-    * "PRECTOTCORR": Bias Corrected Total Precipitation
-    * "T2M": 2-meter Air Temperature 
-    * "QV2M": 2-meter Specific Humidity
+* "PRECTOTCORR": Bias Corrected Total Precipitation
+* "T2M": 2-meter Air Temperature
+* "QV2M": 2-meter Specific Humidity
    
 The most significant weather variables that affect people's trip experiences are precipitation, temperature, and humidity near Earth's surface. These variables also interact to impact trip experiences. For example, precipitation below zero degrees Celsius results in snow. So to keep this app lightweight, separate weather variables for rain and snow were not included. Furthermore, to support accurate long-term forecasting, wind speeds and other weather variables that fluctuate relatively hour-by-hour as opposed to day-to-day were not included in this app. Spatial resolution is approximately 50 km in the latitudinal direction for MERRA-2. However, temperature, humidity, and precipitation should generally be the same across this distance. 
 
