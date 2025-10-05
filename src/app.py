@@ -35,7 +35,7 @@ parameter_config = {
         "high_threshold": 20,
         "low_threshold": 5
     },
-    "SPEED": {
+    "SPEEDMAX": {
         "label": "Surface Wind Speed",
         "unit": "m/s",
         "y_min": 0,
@@ -60,7 +60,7 @@ label_to_parameter = {config["label"]: param for param, config in parameter_conf
 parameter_labels = {
     "T2M": "2-meter Air Temperature ",
     "QV2M": "2-meter Specific Humidity",
-    "SPEED": "Wind Speed",
+    "SPEEDMAX": "Wind Speed",
     "PRECTOTCORR": "Bias Corrected Total Precipitation"
 }
 label_to_parameter = {v: k for k, v in parameter_labels.items()}
