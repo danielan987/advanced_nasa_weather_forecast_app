@@ -20,7 +20,7 @@ NASA_POWER_API = "https://power.larc.nasa.gov/api/temporal/daily/point"
 # Map API parameters with labels and ranges (after conversion)
 parameter_config = {
     "T2M": {
-        "label": "Temperature 🌡️",
+        "label": "Temperature",
         "unit": "°C",
         "y_min": -60,
         "y_max": 50,
@@ -28,7 +28,7 @@ parameter_config = {
         "low_threshold": 0
     },
     "QV2M": {
-        "label": "Humidity 🌵",
+        "label": "Humidity",
         "unit": "g/kg",
         "y_min": 0,
         "y_max": 30,
@@ -36,7 +36,7 @@ parameter_config = {
         "low_threshold": 5
     },
     "PRECTOTCORR": {
-        "label": "Precipitation ☁️",
+        "label": "Precipitation",
         "unit": "mm/day",
         "y_min": 0,
         "y_max": 100,
@@ -50,9 +50,9 @@ label_to_parameter = {config["label"]: param for param, config in parameter_conf
 
 # Map API parameters with labels
 parameter_labels = {
-    "T2M": "Temperature ",
-    "QV2M": "Humidity",
-    "PRECTOTCORR": "Precipitation"
+    "T2M": "Temperature 🌡️",
+    "QV2M": "Humidity 🌵",
+    "PRECTOTCORR": "Precipitation ☁️"
 }
 label_to_parameter = {v: k for k, v in parameter_labels.items()}
 
@@ -174,7 +174,7 @@ if map_data and map_data["last_clicked"]:
         st.subheader("📥 Export Data")
         
         if st.button("📊 Download All Data as Excel (Multiple Sheets)"):
-            with st.spinner("Preparing Excel file for download..."):
+            with st.spinner("Finalizing Excel file for download..."):
                 # Prepare dataframes for export
                 df_export = df.reset_index()
                 df_export.columns = ["Date", f"{config['label']} ({config['unit']})"]
