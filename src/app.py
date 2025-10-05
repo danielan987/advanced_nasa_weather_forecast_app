@@ -174,42 +174,38 @@ if map_data and map_data["last_clicked"]:
         st.write("---")
         st.subheader("📥 Export Data")
         
-        # Prepare dataframes for export
-        df_export = df.reset_index()
-        df_export.columns = ['Date', parameter]
-        
-        forecast_export = forecast_zoomed[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].copy()
-        forecast_export.columns = ['Date', 'Forecast', 'Lower_Bound', 'Upper_Bound']
-        
-        historical_forecast_export = historical_forecast[['ds', 'trend']].copy()
-        historical_forecast_export.columns = ['Date', 'Trend']
-        
-        seasonal_export = days_in_year.copy()
-        seasonal_export['Seasonal_Impact'] = seasonal_components['yearly']
-        seasonal_export = seasonal_export[['ds', 'Seasonal_Impact']]
-        seasonal_export.columns = ['Date', 'Seasonal_Impact']
-        
-        # Export Data Button
-        st.write("---")
-        st.write("### 📥 Export Data")
-           
-        output = BytesIO()
-        with pd.ExcelWriter(output, engine='openpyxl') as writer:
-            df.to_excel(writer, sheet_name='Historical Data')
-            forecast_zoomed.to_excel(writer, sheet_name='Forecast', index=False)
-            historical_forecast.to_excel(writer, sheet_name='Historical Forecast', index=False)
-            seasonal_df = days_in_year.copy()
-            seasonal_df['seasonality'] = seasonal_components['yearly'].values
-            seasonal_df.to_excel(writer, sheet_name='Seasonal Cycle', index=False)
-        
-        excel_data = output.getvalue()
-        
-        st.download_button(
-            label="📊 Download All Data (Excel)",
-            data=excel_data,
-            file_name=f"{config['label']}_analysis_{lat:.2f}_{lon:.2f}.xlsx",
-            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-        )
+        if st.button("📑 Download All Data as Excel (Multiple Sheets)"):
+            # Prepare dataframes for export
+            df_export = df.reset_index()
+            df_export.columns = ['Date', parameter]
+            
+            forecast_export = forecast_zoomed[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].copy()
+            forecast_export.columns = ['Date', 'Forecast', 'Lower_Bound', 'Upper_Bound']
+            
+            historical_forecast_export = historical_forecast[['ds', 'trend']].copy()
+            historical_forecast_export.columns = ['Date', 'Trend']
+            
+            seasonal_export = days_in_year.copy()
+            seasonal_export['Seasonal_Impact'] = seasonal_components['yearly']
+            seasonal_export = seasonal_export[['ds', 'Seasonal_Impact']]
+            seasonal_export.columns = ['Date', 'Seasonal_Impact']
+            
+            # Create Excel file with multiple sheets
+            output = BytesIO()
+            with pd.ExcelWriter(output, engine='openpyxl') as writer:
+                df_export.to_excel(writer, sheet_name='Historical Data', index=False)
+                forecast_export.to_excel(writer, sheet_name='Forecast Data', index=False)
+                historical_forecast_export.to_excel(writer, sheet_name='Trend Data', index=False)
+                seasonal_export.to_excel(writer, sheet_name='Seasonal Data', index=False)
+            
+            output.seek(0)
+            
+            st.download_button(
+                label="📥 Download Excel File",
+                data=output,
+                file_name=f"weather_analysis_{parameter}_{datetime.now().strftime('%Y%m%d')}.xlsx",
+                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            )
 
 else:
     st.info("Click on the map to select a location for analysis.")
