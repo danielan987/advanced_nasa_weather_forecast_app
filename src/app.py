@@ -212,6 +212,3 @@ if map_data and map_data["last_clicked"]:
                     mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                 )
             st.success("Excel file ready for download!")
-
-else:
-    st.info("Click on the map to select a location for analysis.")
