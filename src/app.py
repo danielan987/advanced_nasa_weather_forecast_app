@@ -192,20 +192,20 @@ if map_data and map_data["last_clicked"]:
         
         # Create Excel file with multiple sheets
         output = BytesIO()
-        with pd.ExcelWriter(output, engine='openpyxl') as writer:
+        with pd.ExcelWriter(output, engine='openpyxl', mode='w') as writer:
             df_export.to_excel(writer, sheet_name='Historical Data', index=False)
             forecast_export.to_excel(writer, sheet_name='Forecast Data', index=False)
             historical_forecast_export.to_excel(writer, sheet_name='Trend Data', index=False)
             seasonal_export.to_excel(writer, sheet_name='Seasonal Data', index=False)
         
-            output.seek(0)
+        excel_data = output.getvalue()
         
-            st.download_button(
-                label="📑 Download All Data as Excel (Multiple Sheets)",
-                data=output,
-                file_name=f"weather_analysis_{parameter}_{datetime.now().strftime('%Y%m%d')}.xlsx",
-                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-            )
+        st.download_button(
+            label="📑 Download All Data as Excel (Multiple Sheets)",
+            data=excel_data,
+            file_name=f"weather_analysis_{parameter}_{datetime.now().strftime('%Y%m%d')}.xlsx",
+            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        )
 
 else:
     st.info("Click on the map to select a location for analysis.")
