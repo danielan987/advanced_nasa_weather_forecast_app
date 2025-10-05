@@ -1,6 +1,8 @@
 # Long-term Weather Forecasting App by Future Clouds
 
 ## Summary
+For users trips months in advance. 
+
 An app that provides long-term weather predictions for a user's trip location. This is made possible by leveraging 40 years of MERRA-2 data to forecast weather patterns 365 days into the future. This app also provides additional analyses on historical data, trends, and seasonality. Providing users a  their trip. 
 
 
@@ -13,7 +15,7 @@ An app that provides long-term weather predictions for a user's trip location. T
 It is challenging to predict the weather many months in advance. So we often hope for the best that the weather won't be too hot or cold, too humid or dry, or it won't rain or snow too much. As a result, many trips, particularly outdoor trips, have been ruined by unexpected bad weather.   
 
 ### Solution and Impact 
-This is why a 
+
 
 An app with analyses of the weather in that location. 
 
@@ -54,7 +56,7 @@ replace(-999, np.nan)
 
 ### Forecasting
 
-The Prophet model was used for a light-weight 
+
 
 
 
