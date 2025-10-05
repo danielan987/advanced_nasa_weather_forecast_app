@@ -27,42 +27,34 @@ By providing a visualization of a full 1-year range of forecasted values, this e
 
 This app was designed to be lightweight for fast analyses. It was developed using only one programming language (Python) on Streamlit. An automated Prophet model from Meta was also used to generate the analyses. 
 
-This app was also designed to be accessible for people worldwide. By using OpenStreetMap for the map, users can zoom in and see the name of each region in its native language. English was used for labels in the app. However, they are accompanied by emojis to support non-English speaking users. The app user-friendly 
-
+This app was also designed to be accessible for people worldwide. By using OpenStreetMap for the map, users can zoom in and see the name of each region in its native language. English was used for labels in the app. However, they are accompanied by emojis to support non-English speaking users. This makes it easier for all users to identify their exact trip location. So the app can send the correct longitude and latitude data to the NASA POWER API to retrieve the weather data. 
 
 
 ### DATA
 
-Modern-Era Retrospective analysis for Research and Applications, Version 2 (MERRA-2) data from 1981 to the present day were used for this app. '-999' values were all converted to null values. 
+Modern-Era Retrospective analysis for Research and Applications, Version 2 (MERRA-2) data from 1981 to the present day can be retrieved by the NASA POWER API. 
 
-Many MERRA-2 data products could have been selected for this app. However, the 3 products selected for this app were the following:  
+Many MERRA-2 weather data products could have been selected for this app. However, the 3 products selected for this app were the following:  
 
 * "PRECTOTCORR": Bias Corrected Total Precipitation
 * "T2M": 2-meter Air Temperature
 * "QV2M": 2-meter Specific Humidity
    
-The most significant weather variables that affect people's trip experiences are precipitation, temperature, and humidity near Earth's surface. These variables also interact to impact trip experiences. For example, precipitation below zero degrees Celsius results in snow. So to keep this app lightweight, separate weather variables for rain and snow were not included. Furthermore, to support accurate long-term forecasting, wind speeds and other weather variables that fluctuate relatively hour-by-hour as opposed to day-to-day were not included in this app. Spatial resolution is approximately 50 km in the latitudinal direction for MERRA-2. However, temperature, humidity, and precipitation should generally be the same across this distance. 
+The most significant weather variables that affect people's trip experiences are precipitation, temperature, and humidity near Earth's surface. These variables also interact to impact trip experiences. For example, precipitation below zero degrees Celsius results in snow. So to keep this app lightweight, separate weather variables for rain and snow were not included. Furthermore, to support accurate long-term forecasting, wind speeds and other weather variables that fluctuate relatively hour-by-hour as opposed to day-to-day were not included in this app. Spatial resolution is approximately 50 km in the latitudinal direction for MERRA-2. However, temperature, humidity, and precipitation should generally be the same across this distance. The data sometimes includes '-999' values. These will all be converted to nulls before being analyzed. 
 
 ### Forecasting
 
-Prophet, an automated additive model, was used to analyze the MERRA-2 data. This model accounts for non-linear trends using a piecewise linear model and accounts for seasonal cycles using a Fourier series that decomposes the cycle into a series of sine and cosine terms. This model was first used to forecast future weather data 365 days into the future. The forecasted 
+Prophet, an automated additive model, was used to analyze the MERRA-2 data. This model accounts for non-linear trends using a piecewise linear model and accounts for seasonal cycles using a Fourier series that decomposes the cycle into a series of sine and cosine terms. This model is used to forecast future weather data 365 days into the future. This was visualized using Matplotlib on top of a grey-shaded area displaying the range of possible values that fall within a 95% interval. 
 
+As long as the forecasted values on the trip's date don't move above or below the dashed lines that indicate the weather isn't ideal, users can be confident that they do not have to worry about the weather for their trip. 
 
-The forecasted values also include the range of possible values that fall within the 95% confidence interval. This range generally grows with time so forecasting data was set to 1 year of data. 
+The full historical weather data from 1980 to today for that location is also presented. The trend and seasonality component of the data 
 
-It was decided to set the forecasting to 1 year of forecasting data is presented because the range of possible values within that level of certainty grows with time.  
-
-So users can be highly certain about the weather predictions from this app. 
-
-
-Seasonality impact was added at the end for users to 
-
-
-
-However, other analyses 
-with blue and red dashed lines to indicate if it's too high or too low, respectively. 
+The third analysis decomposes the data to visualize the general trend without the fluctuations. The fourth analysis decomposes the data to visualize the impact of the seasonal cycle that occurs within each year on soil moisture levels. 
 
 Nevertheless, developers can feel free to export and update 
+
+Color combinations for the data visualizations 
 
 ### Developer Guide
 
