@@ -198,14 +198,14 @@ if map_data and map_data["last_clicked"]:
             historical_forecast_export.to_excel(writer, sheet_name='Trend Data', index=False)
             seasonal_export.to_excel(writer, sheet_name='Seasonal Data', index=False)
         
-        output.seek(0)
+            output.seek(0)
         
-        st.download_button(
-            label="📑 Download All Data as Excel (Multiple Sheets)",
-            data=output,
-            file_name=f"weather_analysis_{parameter}_{datetime.now().strftime('%Y%m%d')}.xlsx",
-            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-        )
+            st.download_button(
+                label="📑 Download All Data as Excel (Multiple Sheets)",
+                data=output,
+                file_name=f"weather_analysis_{parameter}_{datetime.now().strftime('%Y%m%d')}.xlsx",
+                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            )
 
 else:
     st.info("Click on the map to select a location for analysis.")
