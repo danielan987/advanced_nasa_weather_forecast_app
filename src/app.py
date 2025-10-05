@@ -105,7 +105,7 @@ if map_data and map_data["last_clicked"]:
             ax.legend()
         
         # Prophet Forecast
-        with st.spinner("Training forecast model 🏋️..."):
+        with st.spinner("Forecasting..."):
             df_prophet = df[[parameter]].reset_index()
             df_prophet.columns = ["ds", "y"]  
             model = Prophet(weekly_seasonality=False, yearly_seasonality=True, interval_width = 0.95)
