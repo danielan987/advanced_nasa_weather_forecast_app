@@ -20,7 +20,7 @@ NASA_POWER_API = "https://power.larc.nasa.gov/api/temporal/daily/point"
 # Map API parameters with labels and ranges (after conversion)
 parameter_config = {
     "T2M": {
-        "label": "2-meter Air Temperature",
+        "label": "Temperature",
         "unit": "°C",
         "y_min": -60,
         "y_max": 50,
@@ -28,7 +28,7 @@ parameter_config = {
         "low_threshold": 0
     },
     "QV2M": {
-        "label": "2-meter Specific Humidity",
+        "label": "Humidity",
         "unit": "g/kg",
         "y_min": 0,
         "y_max": 30,
@@ -36,7 +36,7 @@ parameter_config = {
         "low_threshold": 5
     },
     "PRECTOTCORR": {
-        "label": "Bias Corrected Total Precipitation",
+        "label": "Precipitation",
         "unit": "mm/day",
         "y_min": 0,
         "y_max": 100,
@@ -50,9 +50,9 @@ label_to_parameter = {config["label"]: param for param, config in parameter_conf
 
 # Map API parameters with labels
 parameter_labels = {
-    "T2M": "2-meter Air Temperature ",
-    "QV2M": "2-meter Specific Humidity",
-    "PRECTOTCORR": "Bias Corrected Total Precipitation"
+    "T2M": "Temperature ",
+    "QV2M": "Humidity",
+    "PRECTOTCORR": "Precipitation"
 }
 label_to_parameter = {v: k for k, v in parameter_labels.items()}
 
