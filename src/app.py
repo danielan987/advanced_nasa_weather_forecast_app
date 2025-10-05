@@ -6,6 +6,7 @@ import requests
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
 from prophet import Prophet
 from datetime import datetime
 from io import BytesIO
