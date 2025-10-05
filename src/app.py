@@ -87,7 +87,7 @@ if map_data and map_data["last_clicked"]:
         df = pd.DataFrame.from_dict(data).replace(-999, np.nan)
         df.index = pd.to_datetime(df.index, format="%Y%m%d")
             
-        st.success("Data fetched successfully! Performing analysis...")
+        st.success("Data fetched successfully! Performing analysis ✅...")
         
         # Historical Analysis Plot
         with st.spinner("Generating historical analysis chart..."):
