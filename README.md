@@ -1,7 +1,7 @@
 # Long-term Weather Forecasting App by Future Clouds
 
 ## Summary
-An app where users can obtain long-term weather predictions for a location they select. 
+An app that provides long-term weather predictions for a user's trip location. This is made possible by leveraging 40 years of MERRA-2 data to forecast weather patterns 365 days into the future. This app also provides additional analyses on historical data, trends, and seasonality. Providing users a  their trip. 
 
 
 
@@ -13,28 +13,51 @@ An app where users can obtain long-term weather predictions for a location they 
 It is challenging to predict the weather many months in advance. So we often hope for the best that the weather won't be too hot or cold, too humid or dry, or it won't rain or snow too much. As a result, many trips, particularly outdoor trips, have been ruined by unexpected bad weather.   
 
 ### Solution and Impact 
-This is why a user-friendly app 
+This is why a 
 
 An app with analyses of the weather in that location. 
 
-By providing this range of forecasted values, this enables users to choose the optimal dates within the upcoming year and locations for their trips to have good weather. If they have already selected the dates and locations for their trips, this also provides them with an advanced notice to pack clothing and items that are appropriate for the weather predicted. 
+By providing a visualization of a full 1-year range of forecasted values, this enables users to choose the optimal dates within the upcoming year or even switch their trip's locations for better weather. 
 
 
 
 ### Methodology and Technical Architecture Diagram
-This app 
 
-user-friendly without using any particular languages 
-
-accessible for users across the world. By using OpenStreetMap for the map, users can zoom in and see the name of each region in its native language. English was used for labels in the app. However, they are accompanied by emojis to support non-English speaking users. 
-
-Each visualization is written in English with emojis
-
-A lightweight framework using Python. 
-prophet model leveraging 40 years of MERRA-2 data to predict the weather 365 days into the future. 
+This app was designed to be lightweight for fast analyses. It was developed using only one programming language (Python) on Streamlit. 
 
 
-time averaged
+This app was also designed to be accessible for users across the world. By using OpenStreetMap for the map, users can zoom in and see the name of each region in its native language. English was used for labels in the app. However, they are accompanied by emojis to support non-English speaking users. The app user-friendly 
+
+
+
+
+### DATA
+
+40 years of 
+
+is a re-analysis of modelled 
+
+using an upgraded version of the Goddard Earth Observing System Model,
+Version 5 (GEOS-5) data assimilation system
+
+Many MERRA-2 data products could have been selected for this app. However, the 3 products selected for this app were the following:  
+
+    * "T2M": 2-meter Air Temperature 
+    * "QV2M": 2-meter Specific Humidity
+    * "PRECTOTCORR": Bias Corrected Total Precipitation
+
+caveat not forecasting but historical analysis 
+
+
+
+### Forecasting
+
+The Prophet model was used for a light-weight 
+
+
+
+
+seasonality 
 
 The forecasted values also include the range of possible values that fall within the 95% confidence interval. This range generally grows with time so forecasting data was set to 1 year of data. 
 
@@ -45,13 +68,7 @@ So users can be highly certain about the weather predictions from this app.
 However, other analyses 
 with blue and red dashed lines to indicate if it's too high or too low, respectively. 
 
-
-
-
-Many MERRA-2 data products could have been selected. However, the 3 products selected for this app includes 
-
-Nevertheless, developers can feel free to update o
-
+Nevertheless, developers can feel free to update 
 
 ### Developer Guide
 
@@ -79,8 +96,6 @@ Nevertheless, developers can feel free to update o
 <img width="740" alt="Screenshot 2025-04-30 at 11 54 03 AM" src="https://github.com/user-attachments/assets/d68e738d-c765-4495-b03c-2316c19a0164" />
 
 3. View results.
-
-If results can't be found on a particular location with the selected parameter (e.g., selecting in an ocean), users will be requested to select another location/parameter.
 
 5. Export data (Optional).
 
