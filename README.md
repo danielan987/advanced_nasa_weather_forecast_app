@@ -45,7 +45,7 @@ The most significant weather variables that affect people's trip experiences are
 
 ### Forecasting
 
-Prophet, an automated additive model, was used to analyze the MERRA-2 data. This model accounts for non-linear trends with a piecewise linear model and accounts for seasonal cycles using a Fourier series that decomposes the cycle into a series of sine and cosine terms. This forecasts weather 365 days into the future. 
+Prophet, an automated additive model, was used to analyze the MERRA-2 data. This model accounts for non-linear trends using a piecewise linear model and accounts for seasonal cycles using a Fourier series that decomposes the cycle into a series of sine and cosine terms. This model was first used to forecast future weather data 365 days into the future. The forecasted 
 
 
 The forecasted values also include the range of possible values that fall within the 95% confidence interval. This range generally grows with time so forecasting data was set to 1 year of data. 
@@ -55,7 +55,7 @@ It was decided to set the forecasting to 1 year of forecasting data is presented
 So users can be highly certain about the weather predictions from this app. 
 
 
-seasonality was added at the end for users to 
+Seasonality impact was added at the end for users to 
 
 
 
