@@ -111,7 +111,7 @@ if map_data and map_data["last_clicked"]:
             model = Prophet(weekly_seasonality=False, yearly_seasonality=True, interval_width = 0.95)
             model.fit(df_prophet)
             future = model.make_future_dataframe(periods=365)
-            forecast = model.pblackict(future)
+            forecast = model.predict(future)
             forecast_zoomed = forecast.tail(365)
         
         # Forecast Plot
@@ -126,6 +126,9 @@ if map_data and map_data["last_clicked"]:
             ax2.set_xlabel("Date")
             ax2.set_ylabel(f"{config["label"]} ({config["unit"]})")
             ax2.set_ylim(config["y_min"], config["y_max"])
+            ax2.xaxis.set_major_locator(mdates.MonthLocator())
+            ax2.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
+            plt.setp(ax2.xaxis.get_majorticklabels(), rotation=45, ha='right')     
             ax2.legend()
             ax2.grid(True)
             st.pyplot(fig2)
