@@ -25,10 +25,9 @@ By providing a visualization of a full 1-year range of forecasted values, this e
 
 ### Methodology and Technical Architecture Diagram
 
-This app was designed to be lightweight for fast analyses. It was developed using only one programming language (Python) on Streamlit. 
+This app was designed to be lightweight for fast analyses. It was developed using only one programming language (Python) on Streamlit. An automated Prophet model from Meta was also used to generate the analyses. 
 
-
-This app was also designed to be accessible for users across the world. By using OpenStreetMap for the map, users can zoom in and see the name of each region in its native language. English was used for labels in the app. However, they are accompanied by emojis to support non-English speaking users. The app user-friendly 
+This app was also designed to be accessible for people worldwide. By using OpenStreetMap for the map, users can zoom in and see the name of each region in its native language. English was used for labels in the app. However, they are accompanied by emojis to support non-English speaking users. The app user-friendly 
 
 
 
@@ -57,7 +56,7 @@ replace(-999, np.nan)
 ### Forecasting
 
 
-
+additive model where non-linear trends are fit with yearly, weekly, and daily seasonality
 
 
 
