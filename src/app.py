@@ -76,11 +76,6 @@ def fetch_nasa_power_data(lat, lon, parameter):
         data = response.json()
         if "properties" in data and "parameter" in data["properties"]:
             return data["properties"]["parameter"]
-        else:
-            st.error("No data available for this weather parameter. 👎")
-    else:
-        st.error(f"It appears the selected location/weather parameter does not contain data. 👎 Could you please verify or select a different location/weather parameter for analysis?")
-
 
 # Generate analyses
 if map_data and map_data["last_clicked"]:
@@ -174,7 +169,7 @@ if map_data and map_data["last_clicked"]:
             ax4.grid(True)
             st.pyplot(fig4)
 
-        # Export Data Button
+        # Export Data
         st.write("---")
         st.subheader("📥 Export Data")
         
@@ -182,20 +177,20 @@ if map_data and map_data["last_clicked"]:
             with st.spinner("Preparing Excel file for download..."):
                 # Prepare dataframes for export
                 df_export = df.reset_index()
-                df_export.columns = ["Date", parameter]
+                df_export.columns = ["Date", f"{config['label']} ({config['unit']})"]
                 
                 forecast_export = forecast_zoomed[["ds", "yhat", "yhat_lower", "yhat_upper"]].copy()
-                forecast_export.columns = ["Date", "Forecast", "Lower_Bound", "Upper_Bound"]
+                # forecast_export.columns = ["Date", "Forecast", "Lower_Bound", "Upper_Bound"]
+                forecast_export.columns = ["Date", f"Forecast ({config['unit']})", f"Lower Bound ({config['unit']})", f"Upper Bound ({config['unit']})"]
                 
                 historical_forecast_export = historical_forecast[["ds", "trend"]].copy()
-                historical_forecast_export.columns = ["Date", "Trend"]
+                historical_forecast_export.columns = ["Date", f"Trend ({config['unit']})"]
                 
                 seasonal_export = days_in_year.copy()
                 seasonal_export["Seasonal_Impact"] = seasonal_components["yearly"]
                 seasonal_export = seasonal_export[["ds", "Seasonal_Impact"]]
-                seasonal_export.columns = ["Date", "Seasonal_Impact"]
+                seasonal_export.columns = ["Date", f"Seasonal Impact ({config['unit']})"]
                 
-                # Create Excel file with multiple sheets
                 output = BytesIO()
                 with pd.ExcelWriter(output, engine="openpyxl") as writer:
                     df_export.to_excel(writer, sheet_name="Historical Data", index=False)
