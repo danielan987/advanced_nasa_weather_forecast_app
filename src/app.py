@@ -105,7 +105,7 @@ if map_data and map_data["last_clicked"]:
             ax.legend()
         
         # Prophet Forecast
-        with st.spinner("Training forecast model..."):
+        with st.spinner("Training forecast model 🏋️..."):
             df_prophet = df[[parameter]].reset_index()
             df_prophet.columns = ["ds", "y"]  
             model = Prophet(weekly_seasonality=False, yearly_seasonality=True, interval_width = 0.95)
@@ -173,7 +173,7 @@ if map_data and map_data["last_clicked"]:
         st.write("---")
         st.subheader("📥 Export Data")
         
-        if st.button("📊 Download All Data as Excel (Multiple Sheets)"):
+        if st.button("📊 Download Data"):
             with st.spinner("Finalizing Excel file for download..."):
                 # Prepare dataframes for export
                 df_export = df.reset_index()
