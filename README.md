@@ -48,6 +48,8 @@ Many MERRA-2 data products could have been selected for this app. However, the 3
 
 caveat not forecasting but historical analysis 
 
+replace(-999, np.nan)
+
 
 
 ### Forecasting
@@ -57,7 +59,7 @@ The Prophet model was used for a light-weight
 
 
 
-seasonality 
+seasonality was added at the end for users to 
 
 The forecasted values also include the range of possible values that fall within the 95% confidence interval. This range generally grows with time so forecasting data was set to 1 year of data. 
 
@@ -68,7 +70,7 @@ So users can be highly certain about the weather predictions from this app.
 However, other analyses 
 with blue and red dashed lines to indicate if it's too high or too low, respectively. 
 
-Nevertheless, developers can feel free to update 
+Nevertheless, developers can feel free to export and update 
 
 ### Developer Guide
 
