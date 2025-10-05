@@ -48,7 +48,7 @@ Prophet, an automated additive model, was used to analyze the MERRA-2 data. This
 
 As long as the forecasted values on the trip's date don't move above or below the dashed lines that indicate the weather isn't ideal, users can be confident that they do not have to worry about the weather for their trip. 
 
-The full historical weather data from 1980 to today for that location is also visualized. This historical data is decomposed to visualize the general trend without the fluctuations. It is also decomposed to visualize the seasonality impact of this location.  
+The full historical weather data from 1980 to today for that location is also visualized. This historical data is decomposed to visualize the general trend without the fluctuations. It is also decomposed to visualize the seasonality impact on this location's weather.  
 
 Nevertheless, developers can feel free to export and update 
 
