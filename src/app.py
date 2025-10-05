@@ -17,7 +17,6 @@ st.title("☔️ Advanced Weather Forecasting App")
 # NASA POWER API base URL
 NASA_POWER_API = "https://power.larc.nasa.gov/api/temporal/daily/point"
 
-# Map API parameters with labels and ranges
 # Map API parameters with labels and ranges (after conversion)
 parameter_config = {
     "T2M": {
