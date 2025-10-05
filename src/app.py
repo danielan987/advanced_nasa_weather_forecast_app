@@ -117,8 +117,9 @@ if map_data and map_data["last_clicked"]:
         # Historical Analysis Plot
         fig, ax = plt.subplots(figsize=(20, 8))
         ax.plot(df.index, df[parameter], label=config["label"], color="gold")
-        ax.axhline(y=config["high_threshold"], color='blue', linestyle='--', label="Too High") 
-        ax.axhline(y=config["low_threshold"], color='red', linestyle='--', label="Too Low") 
+        ax.axhline(y=config["high_threshold"], color='blue', linestyle='--', label="Too High")
+        if parameter != "PRECTOTCORR":
+            ax.axhline(y=config["low_threshold"], color='red', linestyle='--', label="Too Low") 
         ax.set_ylim(config["y_min"], config["y_max"])
         fig.autofmt_xdate()  
         ax.grid(True)
