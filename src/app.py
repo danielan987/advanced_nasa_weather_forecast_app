@@ -49,7 +49,7 @@ parameter_config = {
         "y_min": 0,
         "y_max": 100,
         "high_threshold": 25,
-        "low_threshold": None
+        "low_threshold": 0
     }
 }
 
