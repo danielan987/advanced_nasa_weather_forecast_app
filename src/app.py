@@ -20,7 +20,7 @@ NASA_POWER_API = "https://power.larc.nasa.gov/api/temporal/daily/point"
 # Map API parameters with labels and ranges (after conversion)
 parameter_config = {
     "T2M": {
-        "label": "Temperature",
+        "label": "Temperature 🌡️",
         "unit": "°C",
         "y_min": -60,
         "y_max": 50,
@@ -28,7 +28,7 @@ parameter_config = {
         "low_threshold": 0
     },
     "QV2M": {
-        "label": "Humidity",
+        "label": "Humidity 🌵",
         "unit": "g/kg",
         "y_min": 0,
         "y_max": 30,
@@ -36,7 +36,7 @@ parameter_config = {
         "low_threshold": 5
     },
     "PRECTOTCORR": {
-        "label": "Precipitation",
+        "label": "Precipitation ☁️",
         "unit": "mm/day",
         "y_min": 0,
         "y_max": 100,
@@ -77,9 +77,9 @@ def fetch_nasa_power_data(lat, lon, parameter):
         if "properties" in data and "parameter" in data["properties"]:
             return data["properties"]["parameter"]
         else:
-            st.error("No data available for this weather parameter.")
+            st.error("No data available for this weather parameter. 👎")
     else:
-        st.error(f"It appears the selected location/weather parameter does not contain data. Could you please verify or select a different location/weather parameter for analysis?")
+        st.error(f"It appears the selected location/weather parameter does not contain data. 👎 Could you please verify or select a different location/weather parameter for analysis?")
 
 
 # Generate analyses
