@@ -99,7 +99,6 @@ if map_data and map_data["last_clicked"]:
             ax.set_title("Historical Data")
             ax.set_xlabel("Date")
             ax.set_ylabel(f"{config["label"]} ({config["unit"]})")
-            ax.legend()
             df_prophet = df[[parameter]].reset_index()
             df_prophet.columns = ["ds", "y"]  
             model = Prophet(weekly_seasonality=False, yearly_seasonality=True, interval_width = 0.95)
@@ -120,7 +119,6 @@ if map_data and map_data["last_clicked"]:
             ax2.xaxis.set_major_locator(mdates.MonthLocator())
             ax2.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
             plt.setp(ax2.xaxis.get_majorticklabels(), rotation=45, ha='right')     
-            ax2.legend()
             ax2.grid(True)
             st.pyplot(fig2)
             st.title("📅")
@@ -136,7 +134,6 @@ if map_data and map_data["last_clicked"]:
             ax3.set_ylabel(f"{config["label"]} ({config["unit"]})")
             ax3.set_ylim(config["y_min"], config["y_max"])
             ax3.grid(True)
-            ax3.legend()
             st.pyplot(fig3)
             fig4, ax4 = plt.subplots(figsize=(20, 8))
             days_in_year = pd.DataFrame({"ds": pd.date_range("2022-01-01", periods=365)})
@@ -152,7 +149,6 @@ if map_data and map_data["last_clicked"]:
             ax4.set_title("Seasonal Cycle")
             ax4.set_xlabel("Date")
             ax4.set_ylabel(f"Impact on {config["label"]} ({config["unit"]})")
-            ax4.legend()
             ax4.grid(True)
             st.pyplot(fig4)
 
