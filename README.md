@@ -53,7 +53,7 @@ Developers can follow this guide to add more data products, update the dashed li
 2. Go to Streamlit Cloud and create an account or log-in: https://share.streamlit.io/
 <img width="1482" alt="Screenshot 2025-04-30 at 11 12 28 AM" src="https://github.com/user-attachments/assets/ff1779ad-8490-4fe6-abaf-02a2adea8a6c" />
 
-3. Click on "Create app" then "Deploy a public app from GitHub"
+3. Click on "Create app" then "Deploy a public app from GitHub".
 <img width="1522" alt="Screenshot 2025-04-30 at 11 42 14 AM" src="https://github.com/user-attachments/assets/615446ed-2694-4114-ade1-f994c449bf4a" />
 
 <img width="1081" alt="Screenshot 2025-04-30 at 11 18 21 AM" src="https://github.com/user-attachments/assets/30b56274-92eb-4dcd-b5c4-332f0c3995fc" />
