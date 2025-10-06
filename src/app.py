@@ -18,7 +18,7 @@ st.title("☔️ Long-term Weather Forecasting App")
 # NASA POWER API base URL
 NASA_POWER_API = "https://power.larc.nasa.gov/api/temporal/daily/point"
 
-# Map API parameters with labels and ranges (after conversion)
+# API parameters
 parameter_config = {
     "T2M": {
         "label": "Temperature",
@@ -46,15 +46,14 @@ parameter_config = {
     }
 }
 
-# Create label to parameter mapping
 label_to_parameter = {config["label"]: param for param, config in parameter_config.items()}
 
-# Map API parameters with labels
 parameter_labels = {
     "T2M": "Temperature 🌡️",
     "QV2M": "Humidity 🌵",
     "PRECTOTCORR": "Precipitation ☁️"
 }
+
 label_to_parameter = {v: k for k, v in parameter_labels.items()}
 
 # Folium map
@@ -124,10 +123,8 @@ if map_data and map_data["last_clicked"]:
             ax2.legend()
             ax2.grid(True)
             st.pyplot(fig2)
-        
             st.title("📅")
             st.pyplot(fig)
-    
             historical_forecast = forecast[forecast["ds"] <= df_prophet["ds"].max()]  
             fig3, ax3 = plt.subplots(figsize=(20, 8))
             ax3.plot(historical_forecast["ds"], historical_forecast["trend"], label=config["label"], color="gold")
@@ -141,7 +138,6 @@ if map_data and map_data["last_clicked"]:
             ax3.grid(True)
             ax3.legend()
             st.pyplot(fig3)
-        
             fig4, ax4 = plt.subplots(figsize=(20, 8))
             days_in_year = pd.DataFrame({"ds": pd.date_range("2022-01-01", periods=365)})
             seasonal_components = model.predict_seasonal_components(days_in_year)
@@ -162,26 +158,21 @@ if map_data and map_data["last_clicked"]:
 
         # Export Data
         st.write("---")
-        st.subheader("📥 Export Data")
+        st.subheader("✉️ Export Data")
         
         if st.button("📁 Prepare Data for Export"):
             with st.spinner("Finalizing Excel file for download 🗂️..."):
                 # Prepare dataframes for export
                 df_export = df.reset_index()
                 df_export.columns = ["Date", f"{config['label']} ({config['unit']})"]
-                
                 forecast_export = forecast_zoomed[["ds", "yhat", "yhat_lower", "yhat_upper"]].copy()
                 forecast_export.columns = ["Date", f"Forecast ({config['unit']})", f"Lower Bound ({config['unit']})", f"Upper Bound ({config['unit']})"]
-                
                 historical_forecast_export = historical_forecast[["ds", "trend"]].copy()
-                historical_forecast_export.columns = ["Date", f"Trend ({config['unit']})"]
-                
+                historical_forecast_export.columns = ["Date", f"Trend ({config['unit']})"]          
                 seasonal_export = days_in_year.copy()
                 seasonal_export["Seasonal_Impact"] = seasonal_components["yearly"]
                 seasonal_export = seasonal_export[["ds", "Seasonal_Impact"]]
                 seasonal_export.columns = ["Date", f"Seasonal Impact ({config['unit']})"]
-                
-                # Create data source information sheet
                 data_source_df = pd.DataFrame({
                     "Information": ["Data Source", "URL", "Description", "Export Date"],
                     "Details": [
@@ -191,7 +182,6 @@ if map_data and map_data["last_clicked"]:
                         datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                     ]
                 })
-                
                 output = BytesIO()
                 with pd.ExcelWriter(output, engine="openpyxl") as writer:
                     # Write data source as first sheet
@@ -200,21 +190,14 @@ if map_data and map_data["last_clicked"]:
                     forecast_export.to_excel(writer, sheet_name="Forecast Data", index=False)
                     historical_forecast_export.to_excel(writer, sheet_name="Trend Data", index=False)
                     seasonal_export.to_excel(writer, sheet_name="Seasonal Data", index=False)
-                    
-                    # Access the workbook to adjust column widths
                     workbook = writer.book
                     data_source_sheet = workbook["Data Source"]
-                    
-                    # Adjust column widths for better readability
                     data_source_sheet.column_dimensions["A"].width = 20
                     data_source_sheet.column_dimensions["B"].width = 60
-                
-                output.seek(0)
-                
+                output.seek(0)  
                 st.download_button(
-                    label="📥 Download Excel File",
+                    label="📩 Download Excel File",
                     data=output,
                     file_name=f"weather_analysis_{parameter}_{datetime.now().strftime('%Y%m%d')}.xlsx",
                     mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                 )
-            st.success("Excel file ready for download ✅")
