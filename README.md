@@ -66,14 +66,23 @@ Developers can follow this guide to add more data products, update the dashed li
 ### User Guide
 1. Open the Long-term Weather Forecasting App: https://longtermweatherforecastingapp987.streamlit.app/
 <img width="1601" height="860" alt="Screenshot 2025-10-05 at 9 35 01 PM" src="https://github.com/user-attachments/assets/16b2ecfc-a4d5-4a39-91c0-6ccf5d79864c" />
+
 2. Zoom in and select a location on a map. 
 <img width="1213" alt="Screenshot 2025-04-29 at 9 19 48 PM" src="https://github.com/user-attachments/assets/5b106ef8-2626-4e37-b7d8-f4b8908ba868" />
 <img width="740" alt="Screenshot 2025-04-30 at 11 54 03 AM" src="https://github.com/user-attachments/assets/d68e738d-c765-4495-b03c-2316c19a0164" />
 
 3. View results.
+<img width="1589" height="799" alt="Screenshot 2025-10-05 at 11 03 10 PM" src="https://github.com/user-attachments/assets/695d234d-606a-426a-8ea1-bcdc2e249219" />
+<img width="1579" height="706" alt="Screenshot 2025-10-05 at 11 03 28 PM" src="https://github.com/user-attachments/assets/0b204e01-d049-482f-85e3-918d2104c359" />
+<img width="1579" height="750" alt="Screenshot 2025-10-05 at 11 04 29 PM" src="https://github.com/user-attachments/assets/435ab649-6c30-4205-805e-f13f2676e0ed" />
+<img width="1566" height="777" alt="Screenshot 2025-10-05 at 11 05 02 PM" src="https://github.com/user-attachments/assets/43cecfcd-2642-4a44-9730-4102ad4a036d" />
 
-5. Export data (Optional).
+5. Export data by clicking on "Prepare Data for Export" then clicking on "Download Excel File" when it is ready (Optional).
+<img width="242" height="133" alt="Screenshot 2025-10-05 at 11 07 22 PM" src="https://github.com/user-attachments/assets/a2c060c9-e5b3-4b7c-a8db-36275f83342a" />
 
+<img width="1684" height="939" alt="Screenshot 2025-10-05 at 11 08 31 PM" src="https://github.com/user-attachments/assets/3ee87df9-9045-4dd6-acb7-4e001574c379" />
+
+<img width="236" height="172" alt="Screenshot 2025-10-05 at 11 08 44 PM" src="https://github.com/user-attachments/assets/4c52069f-e12b-42f2-82e3-ef41f55632da" />
 
 ## NASA Data 
 https://gmao.gsfc.nasa.gov/reanalysis/MERRA-2/
