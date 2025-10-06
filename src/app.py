@@ -21,7 +21,7 @@ NASA_POWER_API = "https://power.larc.nasa.gov/api/temporal/daily/point"
 # API parameters
 parameter_config = {
     "T2M": {
-        "label": "Temperature 🌡️",
+        "label": "Temperature",
         "unit": "°C",
         "y_min": -60,
         "y_max": 50,
@@ -29,7 +29,7 @@ parameter_config = {
         "low_threshold": 0
     },
     "QV2M": {
-        "label": "Humidity 🌵",
+        "label": "Humidity",
         "unit": "g/kg",
         "y_min": 0,
         "y_max": 30,
@@ -37,7 +37,7 @@ parameter_config = {
         "low_threshold": 5
     },
     "PRECTOTCORR": {
-        "label": "Precipitation ☁️",
+        "label": "Precipitation",
         "unit": "mm/day",
         "y_min": 0,
         "y_max": 100,
@@ -99,7 +99,7 @@ if map_data and map_data["last_clicked"]:
             ax.set_xlabel("Date")
             ax.set_ylabel(f"{config["label"]} ({config["unit"]})")
             ax.grid(True)
-            ax.legend()
+            ax.legend(loc="upper right")
             df_prophet = df[[parameter]].reset_index()
             df_prophet.columns = ["ds", "y"]  
             model = Prophet(weekly_seasonality=False, yearly_seasonality=True, interval_width = 0.95)
@@ -122,7 +122,7 @@ if map_data and map_data["last_clicked"]:
             ax2.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
             plt.setp(ax2.xaxis.get_majorticklabels(), rotation=45, ha='right')     
             ax2.grid(True)
-            ax2.legend()
+            ax2.legend(loc="upper right")
             st.pyplot(fig2)
             st.title("📅")
             st.pyplot(fig)
@@ -138,7 +138,7 @@ if map_data and map_data["last_clicked"]:
             ax3.set_ylabel(f"{config["label"]} ({config["unit"]})")
             ax3.set_ylim(config["y_min"], config["y_max"])
             ax3.grid(True)
-            ax3.legend()
+            ax3.legend(loc="upper right")
             st.pyplot(fig3)
             fig4, ax4 = plt.subplots(figsize=(20, 8))
             days_in_year = pd.DataFrame({"ds": pd.date_range("2022-01-01", periods=365)})
@@ -155,7 +155,7 @@ if map_data and map_data["last_clicked"]:
             ax4.set_xlabel("Date")
             ax4.set_ylabel(f"Impact on {config["label"]} ({config["unit"]})")
             ax4.grid(True)
-            ax4.legend()
+            ax4.legend(loc="upper right")
             st.pyplot(fig4)
 
         # Export Data
