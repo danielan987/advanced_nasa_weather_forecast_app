@@ -1,7 +1,7 @@
 # Long-term Weather Forecasting App by Future Clouds
 
 ## Summary
-Many people schedule their trips months in advance and worry about how the weather in the future might affect their trips. This underscores the need for a long-term weather forecast. Leveraging 40 years of NASA Earth data, this app can predict weather patterns 365 days into the future. This app can also visualize historical data, trends, and seasonal cycles. Providing users with assurances that they won't have to worry about the weather for their trip. 
+Most people schedule their trips months in advance and then worry about how the weather might affect their upcoming trips. This underscores the need for a long-term weather forecast. Leveraging 40 years of NASA Earth data, this app can predict weather patterns 365 days into the future. This app can also visualize historical data, trends, and seasonal cycles. Providing users with assurances that they won't have to worry about the weather for their trips. 
 
 ## Project Demonstration (Slides)
 https://1drv.ms/p/c/460e9917ad8d3df0/ETg2DnHyyJFEqU0xyWeFO6UBm2CD49flAYEC6VWQzxJ5jQ
@@ -40,7 +40,7 @@ Prophet, an automated additive model, was used to analyze the MERRA-2 data. This
 
 As long as the forecasted values on the trip's date don't move above or below the dashed lines that indicate the weather isn't ideal, users can be confident that they do not have to worry about the weather for their trip. 
 
-The full historical weather data from 1980 to today for that location is also visualized. This historical data is decomposed to visualize the general trend without the fluctuations. It is also decomposed to visualize how seasonality impacts this location's weather. Specifically, how much the weather data fluctuates based on the day of the year. 
+The full historical weather data from 1980 to today for that location is also visualized. This historical data is decomposed to visualize the general trend without the fluctuations. So users can recognize if the weather is getting better or worse over the decades or staying the same. The historical data is also decomposed to visualize how seasonality impacts this location's weather. Specifically, how much the weather data fluctuates based on the day of the year. 
 
 
 ### Developer Guide
