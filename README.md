@@ -8,6 +8,7 @@ An app that provides long-term weather predictions for a user's trip location. T
 
 
 ## Project Demonstration
+https://1drv.ms/p/c/460e9917ad8d3df0/ETg2DnHyyJFEqU0xyWeFO6UBm2CD49flAYEC6VWQzxJ5jQ
 
 ## Project Details
 
@@ -21,6 +22,7 @@ An app with analyses of the weather in that location.
 
 By providing a visualization of a full 1-year range of forecasted values, this enables users to choose the optimal dates within the upcoming year or even switch their trip's locations for better weather. 
 
+[Untitled (3).pdf](https://github.com/user-attachments/files/22713043/Untitled.3.pdf)
 
 
 ### Methodology and Technical Architecture Diagram
@@ -28,6 +30,8 @@ By providing a visualization of a full 1-year range of forecasted values, this e
 This app was designed to be lightweight for fast analyses. It was developed using only one programming language (Python) on Streamlit. An automated Prophet model from Meta was also used to generate the analyses. 
 
 This app was also designed to be accessible for people worldwide. By using OpenStreetMap for the map, users can zoom in and see the name of each region in its native language. English was used for labels in the app. However, they are accompanied by emojis to support non-English speaking users. This makes it easier for all users to identify their exact trip location. So the app can send the correct longitude and latitude data to the NASA POWER API to retrieve the weather data. 
+
+
 
 
 ### DATA
