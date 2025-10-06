@@ -7,7 +7,7 @@ An app that provides long-term weather predictions for a user's trip location. T
 
 
 
-## Project Demonstration
+## Project Demonstration (Slides)
 https://1drv.ms/p/c/460e9917ad8d3df0/ETg2DnHyyJFEqU0xyWeFO6UBm2CD49flAYEC6VWQzxJ5jQ
 
 ## Project Details
