@@ -58,7 +58,7 @@ Color combinations for the data visualizations were also carefully selected to m
 
 ### Developer Guide
 
-Developers can follow this free to export and update 
+Developers can follow this guide to add more data products, update the dashed lines based on their ideal weather preferences, and make other customizations for their own use cases. 
 
 1. Fork this repository.
 <img width="143" alt="Screenshot 2025-04-30 at 11 45 18 AM" src="https://github.com/user-attachments/assets/77cba18e-1052-4355-948f-0adbb2a84ed9" />
