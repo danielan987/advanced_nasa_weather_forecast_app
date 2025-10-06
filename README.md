@@ -88,8 +88,6 @@ Developers can follow this guide to add more data products, update the dashed li
 5. Export data (Optional).
 
 
-## Use of Artificial Intelligence
-
 ## NASA Data 
 https://gmao.gsfc.nasa.gov/reanalysis/MERRA-2/
 
@@ -97,7 +95,6 @@ https://gmao.gsfc.nasa.gov/reanalysis/MERRA-2/
 * [Numpy](https://numpy.org/)
 * [Pandas](https://pandas.pydata.org/)
 * [Matplotlib](https://matplotlib.org/)
-* [Seaborn](https://seaborn.pydata.org/)
 * [Prophet](https://facebook.github.io/prophet/)
 * [Requests](https://pypi.org/project/requests/)
 * [Folium](https://python-visualization.github.io/folium/latest/)
@@ -107,3 +104,4 @@ https://gmao.gsfc.nasa.gov/reanalysis/MERRA-2/
 * [Certifi](https://pypi.org/project/certifi/)
 * [Datetime](https://docs.python.org/3/library/datetime.html)
 * [NASA POWER API](https://power.larc.nasa.gov/)
+* [Excel](https://power.larc.nasa.gov/)
