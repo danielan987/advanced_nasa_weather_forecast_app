@@ -1,11 +1,7 @@
 # Long-term Weather Forecasting App by Future Clouds
 
 ## Summary
-Many people schedule their trips months in advance but worry about how the weather might affect their trips. 
-
-An app that provides long-term weather predictions for a user's trip location. This is made possible by leveraging 40 years of NASA Earth data to forecast weather patterns 365 days into the future. This app also provides additional analyses on historical data, trends, and seasonality. Providing users a  their trip. 
-
-
+Many people schedule their trips months in advance and worry about how the weather in the future might affect their trips. This underscores the need for a long-term weather forecast. Leveraging 40 years of NASA Earth data, this app can predict weather patterns 365 days into the future. This app can also visualize historical data, trends, and seasonal cycles. Providing users with assurances that they won't have to worry about the weather for their trip. 
 
 ## Project Demonstration (Slides)
 https://1drv.ms/p/c/460e9917ad8d3df0/ETg2DnHyyJFEqU0xyWeFO6UBm2CD49flAYEC6VWQzxJ5jQ
