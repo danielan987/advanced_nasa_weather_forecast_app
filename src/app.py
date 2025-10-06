@@ -90,9 +90,9 @@ if map_data and map_data["last_clicked"]:
         with st.spinner("Analyzing and visualizing data 📊..."):
             fig, ax = plt.subplots(figsize=(20, 8))
             ax.plot(df.index, df[parameter], label=config["label"], color="gold")
-            ax.axhline(y=config["high_threshold"], color="black", linestyle="--", label="Not Ideal ⚠️")
+            ax.axhline(y=config["high_threshold"], color="black", linestyle="--", label="Too High ⚠️")
             if parameter != "PRECTOTCORR":
-                ax.axhline(y=config["low_threshold"], color="black", linestyle="--", label="Not Ideal ⚠️") 
+                ax.axhline(y=config["low_threshold"], color="black", linestyle="--", label="Too Low ⚠️") 
             ax.set_ylim(config["y_min"], config["y_max"])
             fig.autofmt_xdate() 
             ax.set_title("Historical Data")
@@ -110,8 +110,9 @@ if map_data and map_data["last_clicked"]:
             fig2, ax2 = plt.subplots(figsize=(20, 8))
             ax2.plot(forecast_zoomed["ds"], forecast_zoomed["yhat"], label=config["label"], color="gold")
             ax2.fill_between(forecast_zoomed["ds"], forecast_zoomed["yhat_lower"], forecast_zoomed["yhat_upper"], color="lightgray")
-            ax2.axhline(y=config["high_threshold"], color="black", linestyle="--", label="Not Ideal ⚠️")
-            ax2.axhline(y=config["low_threshold"], color="black", linestyle="--", label="Not Ideal ⚠️")
+            ax2.axhline(y=config["high_threshold"], color="black", linestyle="--", label="Too High ⚠️")
+            if parameter != "PRECTOTCORR":
+                ax2.axhline(y=config["low_threshold"], color="black", linestyle="--", label="Too Low ⚠️")
             st.title("🔮")
             ax2.set_title("Forecast")
             ax2.set_xlabel("Date")
@@ -128,8 +129,9 @@ if map_data and map_data["last_clicked"]:
             historical_forecast = forecast[forecast["ds"] <= df_prophet["ds"].max()]  
             fig3, ax3 = plt.subplots(figsize=(20, 8))
             ax3.plot(historical_forecast["ds"], historical_forecast["trend"], label=config["label"], color="gold")
-            ax3.axhline(y=config["high_threshold"], color="black", linestyle="--", label="Not Ideal ⚠️")
-            ax3.axhline(y=config["low_threshold"], color="black", linestyle="--", label="Not Ideal ⚠️")
+            ax3.axhline(y=config["high_threshold"], color="black", linestyle="--", label="Too High ⚠️")
+            if parameter != "PRECTOTCORR":
+                ax3.axhline(y=config["low_threshold"], color="black", linestyle="--", label="Too Low ⚠️")
             st.title("📈📉")
             ax3.set_title("Trend")
             ax3.set_xlabel("Date")
