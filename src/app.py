@@ -184,7 +184,7 @@ if map_data and map_data["last_clicked"]:
                 df_export.columns = ["Date", f"{config['label']} ({config['unit']})"]
                 
                 forecast_export = forecast_zoomed[["ds", "yhat", "yhat_lower", "yhat_upper"]].copy()
-                forecast_export.columns = ["Date", f"Forecast ({config['unit']})", f"Lower Bound ({config['unit')})", f"Upper Bound ({config['unit']})"]
+                forecast_export.columns = ["Date", f"Forecast ({config['unit']})", f"Lower Bound ({config['unit']})", f"Upper Bound ({config['unit']})"]
                 
                 historical_forecast_export = historical_forecast[["ds", "trend"]].copy()
                 historical_forecast_export.columns = ["Date", f"Trend ({config['unit']})"]
