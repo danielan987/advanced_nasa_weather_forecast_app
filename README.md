@@ -77,7 +77,7 @@ Developers can follow this guide to add more data products, update the dashed li
 <img width="1579" height="750" alt="Screenshot 2025-10-05 at 11 04 29 PM" src="https://github.com/user-attachments/assets/435ab649-6c30-4205-805e-f13f2676e0ed" />
 <img width="1566" height="777" alt="Screenshot 2025-10-05 at 11 05 02 PM" src="https://github.com/user-attachments/assets/43cecfcd-2642-4a44-9730-4102ad4a036d" />
 
-5. Export data by clicking on "Prepare Data for Export" then clicking on "Download Excel File" when it is ready (Optional).
+4. Export data by clicking on "Prepare Data for Export" then clicking on "Download Excel File" when it is ready (Optional).
 <img width="242" height="133" alt="Screenshot 2025-10-05 at 11 07 22 PM" src="https://github.com/user-attachments/assets/a2c060c9-e5b3-4b7c-a8db-36275f83342a" />
 <img width="276" height="142" alt="Screenshot 2025-10-05 at 11 13 40 PM" src="https://github.com/user-attachments/assets/fbfe55e9-0e5d-4a0e-9713-ead109cf6348" />
 <img width="236" height="172" alt="Screenshot 2025-10-05 at 11 08 44 PM" src="https://github.com/user-attachments/assets/4c52069f-e12b-42f2-82e3-ef41f55632da" />
