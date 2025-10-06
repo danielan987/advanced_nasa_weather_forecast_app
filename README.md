@@ -53,7 +53,7 @@ As long as the forecasted values on the trip's date don't move above or below th
 
 The full historical weather data from 1980 to today for that location is also visualized. This historical data is decomposed to visualize the general trend without the fluctuations. It is also decomposed to visualize how seasonality impacts this location's weather. Specifically, how much the weather data fluctuates based on the day of the year. 
 
-Color combinations for the data visualizations were carefully selected to make this app accessible for users with visual impairments. 
+Color combinations for the data visualizations were also carefully selected to make this app accessible for users with visual impairments. 
 
 
 ### Developer Guide
