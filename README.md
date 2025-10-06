@@ -26,6 +26,9 @@ This app was also designed to be accessible for people worldwide. By using OpenS
 
 <img width="209" height="498" alt="Screenshot 2025-10-05 at 8 27 26 PM" src="https://github.com/user-attachments/assets/1b57b82b-4f32-4439-9531-1190700bbda5" />
 
+<img width="356" height="871" alt="Screenshot 2025-10-05 at 10 09 24 PM" src="https://github.com/user-attachments/assets/7a217f20-01bd-4f7c-b4e9-72fc73f3e4cf" />
+
+
 ### Data
 
 Modern-Era Retrospective analysis for Research and Applications, Version 2 (MERRA-2) data from 1981 to the present day can be retrieved by the NASA POWER API. 
