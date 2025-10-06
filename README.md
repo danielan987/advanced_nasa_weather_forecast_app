@@ -69,9 +69,8 @@ Developers can follow this guide to add more data products, update the dashed li
 
 ### User Guide
 1. Open the Long-term Weather Forecasting App: https://longtermweatherforecastingapp987.streamlit.app/
-
-2. Zoom in and select a location on a map. 
 <img width="1601" height="860" alt="Screenshot 2025-10-05 at 9 35 01 PM" src="https://github.com/user-attachments/assets/16b2ecfc-a4d5-4a39-91c0-6ccf5d79864c" />
+2. Zoom in and select a location on a map. 
 <img width="1213" alt="Screenshot 2025-04-29 at 9 19 48 PM" src="https://github.com/user-attachments/assets/5b106ef8-2626-4e37-b7d8-f4b8908ba868" />
 <img width="740" alt="Screenshot 2025-04-30 at 11 54 03 AM" src="https://github.com/user-attachments/assets/d68e738d-c765-4495-b03c-2316c19a0164" />
 
