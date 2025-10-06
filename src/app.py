@@ -87,11 +87,8 @@ if map_data and map_data["last_clicked"]:
     if data and parameter in data:
         df = pd.DataFrame.from_dict(data).replace(-999, np.nan)
         df.index = pd.to_datetime(df.index, format="%Y%m%d")
-            
         st.success("Data fetched successfully! ✅ Performing analysis...")
-        
-        # Historical Analysis Plot
-        with st.spinner("Generating historical analysis chart..."):
+        with st.spinner("Analyzing and visualizing data..."):
             fig, ax = plt.subplots(figsize=(20, 8))
             ax.plot(df.index, df[parameter], label=config["label"], color="gold")
             ax.axhline(y=config["high_threshold"], color="black", linestyle="--", label="Too High")
@@ -104,9 +101,6 @@ if map_data and map_data["last_clicked"]:
             ax.set_xlabel("Date")
             ax.set_ylabel(f"{config["label"]} ({config["unit"]})")
             ax.legend()
-        
-        # Prophet Forecast
-        with st.spinner("Forecasting..."):
             df_prophet = df[[parameter]].reset_index()
             df_prophet.columns = ["ds", "y"]  
             model = Prophet(weekly_seasonality=False, yearly_seasonality=True, interval_width = 0.95)
@@ -114,9 +108,6 @@ if map_data and map_data["last_clicked"]:
             future = model.make_future_dataframe(periods=365)
             forecast = model.predict(future)
             forecast_zoomed = forecast.tail(365)
-        
-        # Forecast Plot
-        with st.spinner("Generating forecast chart 🔮..."):
             fig2, ax2 = plt.subplots(figsize=(20, 8))
             ax2.plot(forecast_zoomed["ds"], forecast_zoomed["yhat"], label=config["label"], color="gold")
             ax2.fill_between(forecast_zoomed["ds"], forecast_zoomed["yhat_lower"], forecast_zoomed["yhat_upper"], color="lightgray")
@@ -134,11 +125,9 @@ if map_data and map_data["last_clicked"]:
             ax2.grid(True)
             st.pyplot(fig2)
         
-        st.title("📅")
-        st.pyplot(fig)
-        
-        # Trend Plot
-        with st.spinner("Generating trend analysis chart 📈📉..."):
+            st.title("📅")
+            st.pyplot(fig)
+    
             historical_forecast = forecast[forecast["ds"] <= df_prophet["ds"].max()]  
             fig3, ax3 = plt.subplots(figsize=(20, 8))
             ax3.plot(historical_forecast["ds"], historical_forecast["trend"], label=config["label"], color="gold")
@@ -153,8 +142,6 @@ if map_data and map_data["last_clicked"]:
             ax3.legend()
             st.pyplot(fig3)
         
-        # Seasonal Cycle Plot
-        with st.spinner("Generating seasonal cycle chart 🌷🌻🍂❄️..."):
             fig4, ax4 = plt.subplots(figsize=(20, 8))
             days_in_year = pd.DataFrame({"ds": pd.date_range("2022-01-01", periods=365)})
             seasonal_components = model.predict_seasonal_components(days_in_year)
