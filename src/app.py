@@ -147,7 +147,7 @@ if map_data and map_data["last_clicked"]:
             days_in_year["month_day"] = days_in_year["ds"].dt.strftime("%m-%d")
             first_day_of_month = days_in_year[days_in_year["ds"].dt.is_month_start]
             st.title("🌷🌻🍂❄️")
-            ax4.plot(days_in_year["ds"], seasonal_components["yearly"], label="Seasonality Impact", color="orange")
+            ax4.plot(days_in_year["ds"], seasonal_components["yearly"], color="orange")
             ax4.set_xticks(first_day_of_month["ds"])
             ax4.set_xticklabels(first_day_of_month["ds"].dt.strftime("%b %d"))
             ax4.tick_params(axis="x", rotation=45)
@@ -155,7 +155,6 @@ if map_data and map_data["last_clicked"]:
             ax4.set_xlabel("Date")
             ax4.set_ylabel(f"Impact on {config["label"]} ({config["unit"]})")
             ax4.grid(True)
-            ax4.legend(loc="upper right")
             st.pyplot(fig4)
 
         # Export Data
