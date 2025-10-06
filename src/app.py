@@ -176,37 +176,38 @@ if map_data and map_data["last_clicked"]:
         # Export Data
         st.write("---")
         st.subheader("📥 Export Data")
-        
+
         if st.button("📊 Prepare Data for Export"):
-            with st.spinner("Finalizing CSV file for download 🗂️..."):
+            with st.spinner("Finalizing Excel file for download 🗂️..."):
                 # Prepare dataframes for export
                 df_export = df.reset_index()
                 df_export.columns = ["Date", f"{config['label']} ({config['unit']})"]
-                
+
                 forecast_export = forecast_zoomed[["ds", "yhat", "yhat_lower", "yhat_upper"]].copy()
+                # forecast_export.columns = ["Date", "Forecast", "Lower_Bound", "Upper_Bound"]
                 forecast_export.columns = ["Date", f"Forecast ({config['unit']})", f"Lower Bound ({config['unit']})", f"Upper Bound ({config['unit']})"]
-                
+
                 historical_forecast_export = historical_forecast[["ds", "trend"]].copy()
                 historical_forecast_export.columns = ["Date", f"Trend ({config['unit']})"]
-                
+
                 seasonal_export = days_in_year.copy()
                 seasonal_export["Seasonal_Impact"] = seasonal_components["yearly"]
                 seasonal_export = seasonal_export[["ds", "Seasonal_Impact"]]
                 seasonal_export.columns = ["Date", f"Seasonal Impact ({config['unit']})"]
-                
-                # Combine all data into a single CSV
-                # Merge dataframes on Date column
-                combined = df_export.merge(forecast_export, on="Date", how="outer")
-                combined = combined.merge(historical_forecast_export, on="Date", how="outer")
-                combined = combined.merge(seasonal_export, on="Date", how="outer")
-                
-                # Convert to CSV
-                csv_data = combined.to_csv(index=False)
-                
+
+                output = BytesIO()
+                with pd.ExcelWriter(output, engine="openpyxl") as writer:
+                    df_export.to_excel(writer, sheet_name="Historical Data", index=False)
+                    forecast_export.to_excel(writer, sheet_name="Forecast Data", index=False)
+                    historical_forecast_export.to_excel(writer, sheet_name="Trend Data", index=False)
+                    seasonal_export.to_excel(writer, sheet_name="Seasonal Data", index=False)
+
+                output.seek(0)
+
                 st.download_button(
-                    label="📥 Download CSV File",
-                    data=csv_data,
-                    file_name=f"weather_analysis_{parameter}_{datetime.now().strftime('%Y%m%d')}.csv",
-                    mime="text/csv"
+                    label="📥 Download Excel File",
+                    data=output,
+                    file_name=f"weatheranalysis{parameter}_{datetime.now().strftime("%Y%m%d")}.xlsx",
+                    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                 )
-            st.success("CSV file ready for download ✅")
+            st.success("Excel file ready for download ✅")
