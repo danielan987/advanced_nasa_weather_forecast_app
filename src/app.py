@@ -88,7 +88,7 @@ if map_data and map_data["last_clicked"]:
         df = pd.DataFrame.from_dict(data).replace(-999, np.nan)
         df.index = pd.to_datetime(df.index, format="%Y%m%d")
             
-        st.success("Data fetched successfully! Performing analysis ✅...")
+        st.success("Data fetched successfully! ✅ Performing analysis...")
         
         # Historical Analysis Plot
         with st.spinner("Generating historical analysis chart..."):
@@ -116,7 +116,7 @@ if map_data and map_data["last_clicked"]:
             forecast_zoomed = forecast.tail(365)
         
         # Forecast Plot
-        with st.spinner("Generating forecast chart..."):
+        with st.spinner("Generating forecast chart 🔮..."):
             fig2, ax2 = plt.subplots(figsize=(20, 8))
             ax2.plot(forecast_zoomed["ds"], forecast_zoomed["yhat"], label=config["label"], color="gold")
             ax2.fill_between(forecast_zoomed["ds"], forecast_zoomed["yhat_lower"], forecast_zoomed["yhat_upper"], color="lightgray")
@@ -138,7 +138,7 @@ if map_data and map_data["last_clicked"]:
         st.pyplot(fig)
         
         # Trend Plot
-        with st.spinner("Generating trend analysis chart..."):
+        with st.spinner("Generating trend analysis chart 📈📉..."):
             historical_forecast = forecast[forecast["ds"] <= df_prophet["ds"].max()]  
             fig3, ax3 = plt.subplots(figsize=(20, 8))
             ax3.plot(historical_forecast["ds"], historical_forecast["trend"], label=config["label"], color="gold")
@@ -154,10 +154,10 @@ if map_data and map_data["last_clicked"]:
             st.pyplot(fig3)
         
         # Seasonal Cycle Plot
-        with st.spinner("Generating seasonal cycle chart..."):
+        with st.spinner("Generating seasonal cycle chart 🌷🌻🍂❄️..."):
             fig4, ax4 = plt.subplots(figsize=(20, 8))
             days_in_year = pd.DataFrame({"ds": pd.date_range("2022-01-01", periods=365)})
-            seasonal_components = model.pblackict_seasonal_components(days_in_year)
+            seasonal_components = model.predict_seasonal_components(days_in_year)
             days_in_year["ds"] = pd.to_datetime(days_in_year["ds"])
             days_in_year["month_day"] = days_in_year["ds"].dt.strftime("%m-%d")
             first_day_of_month = days_in_year[days_in_year["ds"].dt.is_month_start]
@@ -177,14 +177,13 @@ if map_data and map_data["last_clicked"]:
         st.write("---")
         st.subheader("📥 Export Data")
         
-        if st.button("📊 Download Data"):
-            with st.spinner("Finalizing Excel file for download..."):
+        if st.button("📊 Prepare Data for Export"):
+            with st.spinner("Finalizing CSV file for download 🗂️..."):
                 # Prepare dataframes for export
                 df_export = df.reset_index()
                 df_export.columns = ["Date", f"{config['label']} ({config['unit']})"]
                 
                 forecast_export = forecast_zoomed[["ds", "yhat", "yhat_lower", "yhat_upper"]].copy()
-                # forecast_export.columns = ["Date", "Forecast", "Lower_Bound", "Upper_Bound"]
                 forecast_export.columns = ["Date", f"Forecast ({config['unit']})", f"Lower Bound ({config['unit']})", f"Upper Bound ({config['unit']})"]
                 
                 historical_forecast_export = historical_forecast[["ds", "trend"]].copy()
@@ -195,19 +194,19 @@ if map_data and map_data["last_clicked"]:
                 seasonal_export = seasonal_export[["ds", "Seasonal_Impact"]]
                 seasonal_export.columns = ["Date", f"Seasonal Impact ({config['unit']})"]
                 
-                output = BytesIO()
-                with pd.ExcelWriter(output, engine="openpyxl") as writer:
-                    df_export.to_excel(writer, sheet_name="Historical Data", index=False)
-                    forecast_export.to_excel(writer, sheet_name="Forecast Data", index=False)
-                    historical_forecast_export.to_excel(writer, sheet_name="Trend Data", index=False)
-                    seasonal_export.to_excel(writer, sheet_name="Seasonal Data", index=False)
+                # Combine all data into a single CSV
+                # Merge dataframes on Date column
+                combined = df_export.merge(forecast_export, on="Date", how="outer")
+                combined = combined.merge(historical_forecast_export, on="Date", how="outer")
+                combined = combined.merge(seasonal_export, on="Date", how="outer")
                 
-                output.seek(0)
+                # Convert to CSV
+                csv_data = combined.to_csv(index=False)
                 
                 st.download_button(
-                    label="📥 Download Excel File",
-                    data=output,
-                    file_name=f"weather_analysis_{parameter}_{datetime.now().strftime("%Y%m%d")}.xlsx",
-                    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                    label="📥 Download CSV File",
+                    data=csv_data,
+                    file_name=f"weather_analysis_{parameter}_{datetime.now().strftime('%Y%m%d')}.csv",
+                    mime="text/csv"
                 )
-            st.success("Excel file ready for download!")
+            st.success("CSV file ready for download ✅")
