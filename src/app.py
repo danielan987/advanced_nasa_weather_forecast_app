@@ -176,38 +176,63 @@ if map_data and map_data["last_clicked"]:
         # Export Data
         st.write("---")
         st.subheader("📥 Export Data")
-
+        
         if st.button("📊 Prepare Data for Export"):
             with st.spinner("Finalizing Excel file for download 🗂️..."):
                 # Prepare dataframes for export
                 df_export = df.reset_index()
                 df_export.columns = ["Date", f"{config['label']} ({config['unit']})"]
-
+                
                 forecast_export = forecast_zoomed[["ds", "yhat", "yhat_lower", "yhat_upper"]].copy()
-                # forecast_export.columns = ["Date", "Forecast", "Lower_Bound", "Upper_Bound"]
                 forecast_export.columns = ["Date", f"Forecast ({config['unit']})", f"Lower Bound ({config['unit']})", f"Upper Bound ({config['unit']})"]
-
+                
                 historical_forecast_export = historical_forecast[["ds", "trend"]].copy()
                 historical_forecast_export.columns = ["Date", f"Trend ({config['unit']})"]
-
+                
                 seasonal_export = days_in_year.copy()
                 seasonal_export["Seasonal_Impact"] = seasonal_components["yearly"]
                 seasonal_export = seasonal_export[["ds", "Seasonal_Impact"]]
                 seasonal_export.columns = ["Date", f"Seasonal Impact ({config['unit']})"]
-
+                
+                # Create data source information sheet
+                data_source_df = pd.DataFrame({
+                    "Information": ["Data Source", "URL", "Description", "Export Date"],
+                    "Details": [
+                        "NASA MERRA-2 Reanalysis",
+                        "https://gmao.gsfc.nasa.gov/reanalysis/MERRA-2/",
+                        "Modern-Era Retrospective analysis for Research and Applications, Version 2",
+                        datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                    ]
+                })
+                
                 output = BytesIO()
                 with pd.ExcelWriter(output, engine="openpyxl") as writer:
+                    # Write data source as first sheet
+                    data_source_df.to_excel(writer, sheet_name="Data Source", index=False)
                     df_export.to_excel(writer, sheet_name="Historical Data", index=False)
                     forecast_export.to_excel(writer, sheet_name="Forecast Data", index=False)
                     historical_forecast_export.to_excel(writer, sheet_name="Trend Data", index=False)
                     seasonal_export.to_excel(writer, sheet_name="Seasonal Data", index=False)
-
+                    
+                    # Access the workbook to add hyperlink
+                    workbook = writer.book
+                    data_source_sheet = workbook["Data Source"]
+                    
+                    # Make the URL cell a clickable hyperlink
+                    url_cell = data_source_sheet["B2"]
+                    url_cell.hyperlink = "https://gmao.gsfc.nasa.gov/reanalysis/MERRA-2/"
+                    url_cell.style = "Hyperlink"
+                    
+                    # Adjust column widths for better readability
+                    data_source_sheet.column_dimensions["A"].width = 20
+                    data_source_sheet.column_dimensions["B"].width = 60
+                
                 output.seek(0)
-
+                
                 st.download_button(
                     label="📥 Download Excel File",
                     data=output,
-                    file_name=f"weatheranalysis{parameter}_{datetime.now().strftime("%Y%m%d")}.xlsx",
+                    file_name=f"weather_analysis_{parameter}_{datetime.now().strftime('%Y%m%d')}.xlsx",
                     mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                 )
             st.success("Excel file ready for download ✅")
