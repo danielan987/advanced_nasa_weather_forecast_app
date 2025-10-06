@@ -21,7 +21,7 @@ NASA_POWER_API = "https://power.larc.nasa.gov/api/temporal/daily/point"
 # API parameters
 parameter_config = {
     "T2M": {
-        "label": "Temperature",
+        "label": "Temperature 🌡️",
         "unit": "°C",
         "y_min": -60,
         "y_max": 50,
@@ -29,7 +29,7 @@ parameter_config = {
         "low_threshold": 0
     },
     "QV2M": {
-        "label": "Humidity",
+        "label": "Humidity 🌵",
         "unit": "g/kg",
         "y_min": 0,
         "y_max": 30,
@@ -37,7 +37,7 @@ parameter_config = {
         "low_threshold": 5
     },
     "PRECTOTCORR": {
-        "label": "Precipitation",
+        "label": "Precipitation ☁️",
         "unit": "mm/day",
         "y_min": 0,
         "y_max": 100,
