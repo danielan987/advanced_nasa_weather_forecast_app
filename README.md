@@ -79,9 +79,7 @@ Developers can follow this guide to add more data products, update the dashed li
 
 5. Export data by clicking on "Prepare Data for Export" then clicking on "Download Excel File" when it is ready (Optional).
 <img width="242" height="133" alt="Screenshot 2025-10-05 at 11 07 22 PM" src="https://github.com/user-attachments/assets/a2c060c9-e5b3-4b7c-a8db-36275f83342a" />
-
-<img width="1684" height="939" alt="Screenshot 2025-10-05 at 11 08 31 PM" src="https://github.com/user-attachments/assets/3ee87df9-9045-4dd6-acb7-4e001574c379" />
-
+<img width="276" height="142" alt="Screenshot 2025-10-05 at 11 13 40 PM" src="https://github.com/user-attachments/assets/fbfe55e9-0e5d-4a0e-9713-ead109cf6348" />
 <img width="236" height="172" alt="Screenshot 2025-10-05 at 11 08 44 PM" src="https://github.com/user-attachments/assets/4c52069f-e12b-42f2-82e3-ef41f55632da" />
 
 ## NASA Data 
