@@ -184,7 +184,7 @@ if map_data and map_data["last_clicked"]:
                 df_export.columns = ["Date", f"{config['label']} ({config['unit']})"]
                 
                 forecast_export = forecast_zoomed[["ds", "yhat", "yhat_lower", "yhat_upper"]].copy()
-                forecast_export.columns = ["Date", f"Forecast ({config['unit']})", f"Lower Bound ({config['unit']})", f"Upper Bound ({config['unit']})"]
+                forecast_export.columns = ["Date", f"Forecast ({config['unit']})", f"Lower Bound ({config['unit')})", f"Upper Bound ({config['unit']})"]
                 
                 historical_forecast_export = historical_forecast[["ds", "trend"]].copy()
                 historical_forecast_export.columns = ["Date", f"Trend ({config['unit']})"]
@@ -214,14 +214,9 @@ if map_data and map_data["last_clicked"]:
                     historical_forecast_export.to_excel(writer, sheet_name="Trend Data", index=False)
                     seasonal_export.to_excel(writer, sheet_name="Seasonal Data", index=False)
                     
-                    # Access the workbook to add hyperlink
+                    # Access the workbook to adjust column widths
                     workbook = writer.book
                     data_source_sheet = workbook["Data Source"]
-                    
-                    # Make the URL cell a clickable hyperlink
-                    url_cell = data_source_sheet["B2"]
-                    url_cell.hyperlink = "https://gmao.gsfc.nasa.gov/reanalysis/MERRA-2/"
-                    url_cell.style = "Hyperlink"
                     
                     # Adjust column widths for better readability
                     data_source_sheet.column_dimensions["A"].width = 20
@@ -235,3 +230,4 @@ if map_data and map_data["last_clicked"]:
                     file_name=f"weather_analysis_{parameter}_{datetime.now().strftime('%Y%m%d')}.xlsx",
                     mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                 )
+            st.success("Excel file ready for download ✅")
