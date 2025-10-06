@@ -15,15 +15,8 @@ https://1drv.ms/p/c/460e9917ad8d3df0/ETg2DnHyyJFEqU0xyWeFO6UBm2CD49flAYEC6VWQzxJ
 ### Challenge
 It is challenging to predict the weather many months in advance. So we often hope for the best that the weather won't be too hot or cold, too humid or dry, or it won't rain or snow too much. As a result, many trips, particularly outdoor trips, have been ruined by unexpected bad weather.   
 
-### Solution and Impact 
-
-
-An app with analyses of the weather in that location. 
-
-By providing a visualization of a full 1-year range of forecasted values, this enables users to choose the optimal dates within the upcoming year or even switch their trip's locations for better weather. 
-
-
-
+### Solution
+A user-friendly app that can visualize a long-term weather forecast and other weather analyses at any location on Earth. Users only need to select their trip location and do not need to already decide on potential dates. This app can help them choose the exact optimal dates within the upcoming year for their trip. 
 
 ### Methodology Overview 
 
@@ -53,8 +46,6 @@ As long as the forecasted values on the trip's date don't move above or below th
 
 The full historical weather data from 1980 to today for that location is also visualized. This historical data is decomposed to visualize the general trend without the fluctuations. It is also decomposed to visualize how seasonality impacts this location's weather. Specifically, how much the weather data fluctuates based on the day of the year. 
 
-Color combinations for the data visualizations were also carefully selected to make this app accessible for users with visual impairments. 
-
 
 ### Developer Guide
 
@@ -77,7 +68,7 @@ Developers can follow this guide to add more data products, update the dashed li
 <img width="1045" height="712" alt="Screenshot 2025-10-04 at 10 50 06 AM" src="https://github.com/user-attachments/assets/292a007c-6319-4b32-b505-985e68aa9517" />
 
 ### User Guide
-1. Open the Advanced NASA Weather Forecast App.
+1. Open the Long-term Weather Forecasting App: https://longtermweatherforecastingapp987.streamlit.app/
 
 2. Zoom in and select a location on a map. 
 <img width="1213" alt="Screenshot 2025-04-29 at 9 19 48 PM" src="https://github.com/user-attachments/assets/5b106ef8-2626-4e37-b7d8-f4b8908ba868" />
@@ -105,3 +96,4 @@ https://gmao.gsfc.nasa.gov/reanalysis/MERRA-2/
 * [Datetime](https://docs.python.org/3/library/datetime.html)
 * [NASA POWER API](https://power.larc.nasa.gov/)
 * [Excel](https://power.larc.nasa.gov/)
+* [Pexels](https://www.pexels.com/)
