@@ -82,13 +82,13 @@ def fetch_nasa_power_data(lat, lon, parameter):
 if map_data and map_data["last_clicked"]:
     lat = map_data["last_clicked"]["lat"]
     lon = map_data["last_clicked"]["lng"]
-    with st.spinner("Fetching data..."):
+    with st.spinner("Fetching data 📁..."):
         data = fetch_nasa_power_data(lat, lon, parameter)
     if data and parameter in data:
         df = pd.DataFrame.from_dict(data).replace(-999, np.nan)
         df.index = pd.to_datetime(df.index, format="%Y%m%d")
-        st.success("Data fetched successfully! ✅ Performing analysis...")
-        with st.spinner("Analyzing and visualizing data..."):
+        st.success("Data fetched successfully! ✅")
+        with st.spinner("Analyzing and visualizing data 📊..."):
             fig, ax = plt.subplots(figsize=(20, 8))
             ax.plot(df.index, df[parameter], label=config["label"], color="gold")
             ax.axhline(y=config["high_threshold"], color="black", linestyle="--", label="Too High")
@@ -97,7 +97,7 @@ if map_data and map_data["last_clicked"]:
             ax.set_ylim(config["y_min"], config["y_max"])
             fig.autofmt_xdate()  
             ax.grid(True)
-            ax.set_title("Historical Analysis")
+            ax.set_title("Historical Data")
             ax.set_xlabel("Date")
             ax.set_ylabel(f"{config["label"]} ({config["unit"]})")
             ax.legend()
@@ -164,7 +164,7 @@ if map_data and map_data["last_clicked"]:
         st.write("---")
         st.subheader("📥 Export Data")
         
-        if st.button("📊 Prepare Data for Export"):
+        if st.button("📁 Prepare Data for Export"):
             with st.spinner("Finalizing Excel file for download 🗂️..."):
                 # Prepare dataframes for export
                 df_export = df.reset_index()
