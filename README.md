@@ -24,8 +24,6 @@ This app was designed to be lightweight for fast analyses. It was developed usin
 
 This app was also designed to be accessible for people worldwide. By using OpenStreetMap for the map, users can zoom in and see the name of each region in its native language. English was used for labels in the app. However, they are accompanied by emojis to support non-English speaking users. This makes it easier for all users to identify their exact trip location. So the app can send the correct longitude and latitude data to the NASA POWER API to retrieve the weather data. 
 
-<img width="209" height="498" alt="Screenshot 2025-10-05 at 8 27 26 PM" src="https://github.com/user-attachments/assets/1b57b82b-4f32-4439-9531-1190700bbda5" />
-
 <img width="356" height="871" alt="Screenshot 2025-10-05 at 10 09 24 PM" src="https://github.com/user-attachments/assets/7a217f20-01bd-4f7c-b4e9-72fc73f3e4cf" />
 
 
