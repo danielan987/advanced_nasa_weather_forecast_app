@@ -235,4 +235,3 @@ if map_data and map_data["last_clicked"]:
                     file_name=f"weather_analysis_{parameter}_{datetime.now().strftime('%Y%m%d')}.xlsx",
                     mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                 )
-            st.success("Excel file ready for download ✅")
