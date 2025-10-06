@@ -25,16 +25,15 @@ By providing a visualization of a full 1-year range of forecasted values, this e
 
 
 
-### Methodology and Technical Architecture Diagram
+### Methodology Overview and Technical Architecture Diagram
 
 This app was designed to be lightweight for fast analyses. It was developed using only one programming language (Python) on Streamlit. An automated Prophet model from Meta was also used to generate the analyses. 
 
 This app was also designed to be accessible for people worldwide. By using OpenStreetMap for the map, users can zoom in and see the name of each region in its native language. English was used for labels in the app. However, they are accompanied by emojis to support non-English speaking users. This makes it easier for all users to identify their exact trip location. So the app can send the correct longitude and latitude data to the NASA POWER API to retrieve the weather data. 
 
-![Untitled (1)](https://github.com/user-attachments/assets/0f5a992a-0099-449b-bbc0-b2a6c6066db5)
+<img width="209" height="498" alt="Screenshot 2025-10-05 at 8 27 26 PM" src="https://github.com/user-attachments/assets/1b57b82b-4f32-4439-9531-1190700bbda5" />
 
-
-### DATA
+### Data
 
 Modern-Era Retrospective analysis for Research and Applications, Version 2 (MERRA-2) data from 1981 to the present day can be retrieved by the NASA POWER API. 
 
@@ -46,19 +45,20 @@ Many MERRA-2 weather data products could have been selected for this app. Howeve
    
 The most significant weather variables that affect people's trip experiences are precipitation, temperature, and humidity near Earth's surface. These variables also interact to impact trip experiences. For example, precipitation below zero degrees Celsius results in snow. So to keep this app lightweight, separate weather variables for rain and snow were not included. Furthermore, to support accurate long-term forecasting, wind speeds and other weather variables that fluctuate relatively hour-by-hour as opposed to day-to-day were not included in this app. Spatial resolution is approximately 50 km in the latitudinal direction for MERRA-2. However, temperature, humidity, and precipitation should generally be the same across this distance. The data sometimes includes '-999' values. These will all be converted to nulls before being analyzed. 
 
-### Forecasting
+### Data Analysis and Visualization
 
 Prophet, an automated additive model, was used to analyze the MERRA-2 data. This model accounts for non-linear trends using a piecewise linear model and accounts for seasonal cycles using a Fourier series that decomposes the cycle into a series of sine and cosine terms. This model is used to forecast future weather data 365 days into the future. This was visualized using Matplotlib on top of a grey-shaded area displaying the range of possible values that fall within a 95% interval. 
 
 As long as the forecasted values on the trip's date don't move above or below the dashed lines that indicate the weather isn't ideal, users can be confident that they do not have to worry about the weather for their trip. 
 
-The full historical weather data from 1980 to today for that location is also visualized. This historical data is decomposed to visualize the general trend without the fluctuations. It is also decomposed to visualize the seasonality impact on this location's weather.  
+The full historical weather data from 1980 to today for that location is also visualized. This historical data is decomposed to visualize the general trend without the fluctuations. It is also decomposed to visualize how seasonality impacts this location's weather. Specifically, how much the weather data fluctuates based on the day of the year. 
 
-Nevertheless, developers can feel free to export and update 
+Color combinations for the data visualizations were carefully selected to make this app accessible for users with visual impairments. 
 
-Color combinations for the data visualizations 
 
 ### Developer Guide
+
+Developers can follow this free to export and update 
 
 1. Fork this repository.
 <img width="143" alt="Screenshot 2025-04-30 at 11 45 18 AM" src="https://github.com/user-attachments/assets/77cba18e-1052-4355-948f-0adbb2a84ed9" />
